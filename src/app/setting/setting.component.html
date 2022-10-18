@@ -1,0 +1,275 @@
+<div
+  class="d-flex align-items-center justify-content-between fixed-top bg-white p-3 border-bottom"
+>
+  <div class="d-flex align-items-center">
+    <img
+      src="assets/img/sidebar_close.svg"
+      class="back-btn-icon mr-3 cursor-pointer"
+      (click)="dashboardNavigation()"
+      style="width: 2.5rem"
+    />
+
+    <img
+      src="assets/img/sozoMainLogo.svg"
+      class="sozo-navlogo"
+      style="width: 7rem"
+    />
+  </div>
+
+  <div class="d-flex align-items-center">
+    <div class="">
+      <div
+        class="cursor-pointer rounded-circle p-2 shadow"
+        data-toggle="dropdown"
+      >
+        <img
+          src="../assets/img/bell.svg"
+          class="notification-icon"
+          style="width: 1.47rem"
+        />
+      </div>
+
+      <div
+        class="dropdown-menu dropdown-notification-container dropdown-menu-right shadow border-0 custom-scroll-bar"
+      >
+        <div
+          class="dropdown-item px-3 d-flex align-items-center justify-content-between"
+        >
+          <h6 class="font-weight-bold">Notifications</h6>
+
+          <h6 class="d-flex align-items-center">
+            <div class="mr-3">
+              <img
+                src="assets/img/navbarSettingIcon.svg"
+                style="width: 1rem"
+                routerLink="/setting/notification"
+              />
+            </div>
+
+            <div class="cursor-pointer clear-all-notifications">Clear All</div>
+          </h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-4">
+      <div class="cursor-pointer" data-toggle="dropdown">
+        <img
+          class="user-profile-image rounded-circle"
+          [src]="
+            selectedProfileImage ? selectedProfileImage : 'assets/img/user.svg'
+          "
+        />
+      </div>
+
+      <div
+        class="dropdown-menu dropdown-menu-right user-profile border-0 shadow py-0 cursor-pointer"
+      >
+        <div
+          class="dropdown-item user-profile-dropdown py-2 d-flex align-items-center"
+          (click)="settingNevigation()"
+        >
+          <img
+            src="assets/img/dasboardUserAccount.svg"
+            class="user-profile-icons mr-2"
+            style="width: 0.7rem"
+          />
+
+          <span>My Profile</span>
+        </div>
+
+        <div
+          class="dropdown-item user-profile-dropdown py-2 d-flex align-items-center"
+          (click)="logout()"
+        >
+          <img
+            src="assets/img/dashboardLogoutIcon.svg"
+            style="width: 0.93rem"
+            class="mr-2"
+          />
+
+          <span>Logout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar fixed-top bg-white border-right">
+  <div
+    class="d-flex align-items-center justify-content-center flex-column py-3"
+  >
+    <div
+      class="d-flex align-items-center justify-content-center profile-userpic rounded-circle p-1 mb-2"
+    >
+      <div
+        class="d-flex align-items-center justify-content-center rounded-circle profile-userpic-inner my-3 text-white font-weight-bold"
+      >
+        {{ userNameFirstLetter | uppercase }}
+      </div>
+    </div>
+
+    <div class="profile-usertitle-name font-weight-bold">
+      {{ firstName + " " + lastName | uppercase }}
+    </div>
+
+    <div class="profile-usertitle-email">{{ email }}</div>
+  </div>
+
+  <div class="d-flex flex-column">
+    <div
+      class="sidemenu-body p-3 cursor-pointer"
+      routerLink="/setting/user-profile"
+      routerLinkActive="active"
+      #rlaUserProfile="routerLinkActive"
+    >
+      <img
+        class="sidebar-icon"
+        [class.d-none]="!rlaUserProfile.isActive"
+        src="assets/img/sidebarUserProfileSolid.svg"
+      />
+
+      <img
+        src="assets/img/sidebarUserProfile.svg"
+        class="sidebar-icon"
+        [class.d-none]="rlaUserProfile.isActive"
+      />
+
+      <span class="side-menu-name ml-2">User Profile</span>
+    </div>
+
+    <div
+      class="sidemenu-body p-3 cursor-pointer"
+      routerLink="/setting/notification"
+      routerLinkActive="active"
+      #rlaNotification="routerLinkActive"
+    >
+      <img
+        class="sidebar-icon"
+        [class.d-none]="!rlaNotification.isActive"
+        src="assets/img/sidebarNotificationSolid.svg"
+      />
+
+      <img
+        src="assets/img/sidebarNotification.svg"
+        class="sidebar-icon"
+        [class.d-none]="rlaNotification.isActive"
+      />
+
+      <span class="side-menu-name ml-2">Notification</span>
+    </div>
+
+    <div
+      class="sidemenu-body p-3 cursor-pointer"
+      routerLink="/setting/subscription"
+      routerLinkActive="active"
+      #rlaSubscription="routerLinkActive"
+    >
+      <img
+        class="sidebar-icon"
+        [class.d-none]="!rlaSubscription.isActive"
+        src="assets/img/sidebarReferalOptionSolid.svg"
+      />
+
+      <img
+        src="assets/img/sidebarReferalOption.svg"
+        class="sidebar-icon"
+        [class.d-none]="rlaSubscription.isActive"
+      />
+
+      <span class="side-menu-name ml-2">Subscription</span>
+    </div>
+
+    <div
+      class="sidemenu-body p-3 cursor-pointer"
+      routerLink="/setting/workspace-setting"
+      routerLinkActive="active"
+      #rlaWorkspaceSettings="routerLinkActive"
+      *ngIf="adminHide"
+      hidden="true"
+    >
+      <img
+        class="sidebar-icon"
+        [class.d-none]="!rlaWorkspaceSettings.isActive"
+        src="assets/img/sidebarWorkspaceSetting.svg"
+      />
+
+      <img
+        src="assets/img/sidebaeWorkspaceSetting.svg"
+        class="sidebar-icon"
+        [class.d-none]="rlaWorkspaceSettings.isActive"
+      />
+
+      <span class="side-menu-name ml-2">Workspace Settings</span>
+    </div>
+
+    <div
+      class="sidemenu-body p-3 cursor-pointer d-none"
+      routerLink="/setting/referral-option"
+      routerLinkActive="active"
+      #rlaReferals="routerLinkActive"
+    >
+      <img
+        class="sidebar-icon"
+        [class.d-none]="!rlaReferals.isActive"
+        src="assets/img/sidebarReferalOptionSolid.svg"
+      />
+
+      <img
+        src="assets/img/sidebarReferalOption.svg"
+        class="sidebar-icon"
+        [class.d-none]="rlaReferals.isActive"
+      />
+
+      <span class="side-menu-name ml-2">Referral Option</span>
+    </div>
+
+    <div
+      class="sidemenu-body p-3 cursor-pointer"
+      routerLink="/setting/admin-setting"
+      routerLinkActive="active"
+      #rlaAdminProfile="routerLinkActive"
+      *ngIf="adminHide"
+    >
+      <img
+        class="sidebar-icon"
+        *ngIf="!rlaAdminProfile.isActive"
+        src="assets/img/admin-setting-deActive.svg"
+      />
+
+      <img
+        src="assets/img/admin-setting.svg"
+        class="sidebar-icon"
+        *ngIf="rlaAdminProfile.isActive"
+      />
+
+      <span class="side-menu-name ml-2">Admin Settings</span>
+    </div>
+    <!-- BillING CYCLE -->
+    <div
+      class="sidemenu-body p-3 cursor-pointer"
+      routerLink="/setting/billing-cycle"
+      routerLinkActive="active"
+      #rlaAdminProfile="routerLinkActive"
+      *ngIf="adminHide"
+    >
+      <img
+        class="sidebar-icon"
+        *ngIf="!rlaAdminProfile.isActive"
+        src="assets/img/dark-list-icon.svg"
+      />
+
+      <img
+        src="assets/img/active-list-icon.svg"
+        class="sidebar-icon"
+        *ngIf="rlaAdminProfile.isActive"
+      />
+
+      <span class="side-menu-name ml-2">Billing Cycle</span>
+    </div>
+  </div>
+</div>
+
+<div class="route-content" id="routeContent">
+  <router-outlet></router-outlet>
+</div>

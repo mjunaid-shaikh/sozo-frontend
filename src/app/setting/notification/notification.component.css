@@ -1,0 +1,56 @@
+.sozo-detail{
+    border-bottom: 0.04rem solid #eee;
+  }
+  .bg-color{
+  background: #fff;
+  color: black;
+  }
+  .paragraf{
+    top: 1.37rem;
+      right: 0.75rem;
+  
+  }
+  .save-changes{
+    background-color: #62af49;
+    color: #fff;
+  }
+  .custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #62af49;
+    background-color: #62af49;
+  }
+  .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: none;
+    border-color: #62af49;
+  }
+  .notification{
+    top: 4rem;
+      right: 1rem;
+  }
+  .font-color{
+   color:  #515859;
+  }
+  .sub-title{
+    color: #515859;
+  }
+  .sub-title-notification{
+      font-weight: bold;
+      color: #202225;
+  }
+  .page-title h3{
+      font-weight: bold;
+  }
+  .cancel-button{
+    border-radius: 0.4rem;
+    font-weight: bold;
+    border: 2px solid #B8B8B8;
+    padding: 6px 30px 5px 30px;
+  }
+  .save-changes{
+    margin-right: 8.56rem;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    box-sizing: border-box;
+    padding: 0;}

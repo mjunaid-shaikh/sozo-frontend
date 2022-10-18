@@ -1,0 +1,98 @@
+<div class="billing-container">
+  <div class="back-button">
+    <img class="backButton" src="assets/img/backIcon.svg" alt="backIcon" />
+  </div>
+  <div class="header-container d-flex">
+    <div class="billing-heading">
+      <h1 class="billingHeading">Billing</h1>
+      <span class="subHeaderText"
+        >You currently have multiple history of Subscriptions.</span
+      >
+    </div>
+    <div class="search-box">
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2 rounded-pill searchText"
+          type="search"
+          placeholder="Search here…"
+          aria-label="Search"
+        />
+        <img
+          class="search-line-icon"
+          src="assets/img/search-line.svg"
+          alt="search-line"
+        />
+      </form>
+    </div>
+  </div>
+  <div class="label-container rounded d-flex">
+    <div class="d-flex">
+      <div class="listIcon">
+        <img
+          class="listIconImg"
+          src="assets/img/list-icon.svg"
+          alt="list-icon"
+        />
+      </div>
+      <div class="date-info mx-3">
+        <div class="label-month">
+          <span class="" style="font-weight: 700; font-size: 1rem"
+            >Bill of Februry </span
+          ><span style="color: #46ab27; font-weight: 600">( Currently )</span>
+        </div>
+        <div class="date">13 Days are left due date - 10 March, 2022</div>
+      </div>
+    </div>
+    <div class="payBtn">
+      <button type="button" class="btn btn-success">Pay Now</button>
+    </div>
+  </div>
+
+  <!-- data table -->
+
+  <div class="dataTable overflow-auto">
+    <table class="table">
+      <thead class="dataTable-head">
+        <tr>
+          <th scope="col">Account Number</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody class="border bordered tableBody">
+        <tr *ngFor="let billingData of billingCycleData">
+          <td>
+            <div class="cardInfoContainer d-flex">
+              <span style="padding-right: 0.6rem"
+                ><img
+                  class="billingIcon"
+                  src="assets/img/light-list-icon.svg"
+                  alt=""
+              /></span>
+              <div class="cardInfo">
+                <span class="font-weight-bolder">{{ billingData.name }}</span
+                ><span class="CardNumber">{{ billingData.card }}</span>
+              </div>
+            </div>
+          </td>
+          <td><span style="font-weight: 600"> - </span></td>
+          <td>
+            <span style="font-weight: 600">{{ billingData.date | date }}</span>
+          </td>
+          <td>
+            <span class="paidStatus">{{
+              billingData.status == "succeeded" ? "PAID" : "UNPAID"
+            }}</span>
+          </td>
+          <td>
+            <span class="billingDetails">{{
+              billingData.amount | currency: "$ "
+            }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

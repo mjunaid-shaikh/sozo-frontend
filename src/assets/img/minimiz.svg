@@ -1,0 +1,19 @@
+<svg id="Group_17495" data-name="Group 17495" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="Path_51776" data-name="Path 51776" d="M0,0H24V24H0Z" fill="none"/>
+  <g id="Group_17498" data-name="Group 17498" transform="translate(15.834 2.896)">
+    <path id="Path_51777" data-name="Path 51777" d="M20,8H16V4" transform="translate(-16 -2)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_256" data-name="Line 256" x1="5.334" y2="5.5" transform="translate(0.666 0.104)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+  <g id="Group_17497" data-name="Group 17497" transform="translate(2.166 15.104)">
+    <path id="Path_51778" data-name="Path 51778" d="M4,16H8v4" transform="translate(-2.166 -16)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_257" data-name="Line 257" x1="5" y2="5" transform="translate(-0.166 0.896)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+  <g id="Group_17496" data-name="Group 17496" transform="translate(15.834 15.104)">
+    <path id="Path_51779" data-name="Path 51779" d="M20,16H16v4" transform="translate(-16 -16)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_258" data-name="Line 258" x1="5.334" y1="5.5" transform="translate(0.666 0.396)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+  <g id="Group_17499" data-name="Group 17499" transform="translate(2.166 2.896)">
+    <path id="Path_51780" data-name="Path 51780" d="M4,8H8V4" transform="translate(-2.166 -2)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_259" data-name="Line 259" x1="5" y1="5" transform="translate(-0.166 0.104)" fill="none" stroke="#202225" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

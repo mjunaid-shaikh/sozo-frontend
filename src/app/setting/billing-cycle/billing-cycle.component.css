@@ -1,0 +1,91 @@
+/* back button  */
+.back-button {
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.backButton {
+  height: 3rem;
+}
+
+/* billing heading */
+.billing-heading {
+  margin: 1rem 2rem 0rem 2rem;
+}
+.billingHeading {
+  font-weight: bolder !important;
+  font-family: Nunito Sans;
+  color: #202225;
+}
+.subHeaderText {
+  /* margin: 0.7rem 0rem 0rem 2rem; */
+  color: #515859;
+  font-family: Nunito Sans;
+  font-size: 1rem;
+}
+.header-container {
+  justify-content: space-between;
+  margin-right: 2rem;
+}
+.searchText {
+  color: #c7cbcc;
+  font-family: Nunito Sans;
+  width: 15rem !important;
+}
+.search-line-icon {
+  height: 1.5rem;
+  margin-left: -3rem;
+}
+
+/* label container */
+.label-container {
+  margin: 1rem 2rem 0rem 2rem;
+  border: 0.1rem solid #ededed;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.listIconImg {
+  padding: 0.5rem;
+  background: #f3faf0;
+  border-radius: 2rem;
+  height: 2.9rem;
+  margin-left: 0.6rem;
+}
+.label-month {
+  font-family: Nunito Sans;
+}
+.dataTable {
+  margin: 1rem 2rem 1rem 2rem;
+  height: 20rem;
+}
+.dataTable-head {
+  /* border: 1px solid black !important; */
+  color: #c7cbcc;
+  font-family: Nunito Sans;
+}
+.paidStatus {
+  color: #46ab27;
+  font-family: Nunito Sans;
+  font-weight: bold;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  background-color: #e8f2e6;
+}
+.cardInfo {
+  display: grid !important;
+}
+.CardNumber {
+  color: #7a8081;
+  font-family: Nunito Sans;
+}
+.billingDetails {
+  color: #46ab27;
+  font-family: Nunito Sans;
+  font-weight: 800;
+}
+.billingIcon {
+  padding: 0.3rem;
+  border-radius: 2rem;
+  background-color: #f2f2f2;
+}

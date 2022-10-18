@@ -1,0 +1,328 @@
+.row.folder-column {
+  max-height: 70rem;
+  height: 100vmin;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.rename_btn {
+  background-color: #62af49;
+  color: #fff;
+}
+
+.total-folder-docs {
+  margin-right: 2.2rem;
+  border-radius: 0.44rem;
+}
+.recent-docs-name {
+  font-weight: 800;
+  font-size: 0.81rem;
+}
+.recent-docs-container {
+  width: 15rem;
+  border-radius: 0.6rem;
+  position: relative;
+  display: none;
+}
+
+.recent-folder-bg-icon .group-logo-folder {
+  position: absolute;
+  top: 9.8rem;
+  right: 0.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#canvasImg {
+  object-fit: cover;
+  border-radius: 0.4rem 0.4rem 0rem 0rem;
+}
+
+.recent-docs .click-to-open {
+  color: #ffffff;
+  background: #ffffff2e 0% 0% no-repeat padding-box;
+  border-radius: 0.5rem;
+  opacity: 1;
+  outline: none;
+  border: none;
+  padding: 0.22rem 0.93rem 0.35rem 0.93rem;
+  position: absolute;
+  top: 5.5rem;
+  left: 3.8rem;
+}
+
+.recent-docs .group-logo {
+  position: absolute;
+
+  top: 9.8rem;
+
+  right: 0.7rem;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+.recent-docs-container {
+  width: 15rem;
+
+  border-radius: 0.6rem;
+
+  position: relative;
+
+  display: none;
+}
+
+.recent-docs-img {
+  height: 12.25rem;
+
+  width: 100%;
+}
+
+.lastchange-details {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  height: 3.5rem;
+
+  background-color: #f8f9f9;
+
+  border-radius: 0 0 0.6rem 0.6rem;
+
+  overflow: hidden;
+}
+
+.share-and-more {
+  margin-top: -0.1rem;
+
+  display: none;
+
+  background-color: #befdac;
+
+  height: 3.5rem;
+
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+
+.more-user-opt:hover {
+  background-color: #fff !important;
+
+  cursor: no-drop !important;
+}
+
+.more_list {
+  min-width: 11.87rem;
+
+  border: none !important;
+
+  box-shadow: 0 0 1.56rem #51515133;
+
+  border-radius: 0.62rem;
+}
+
+.more_list a,
+.more_folder_list a {
+  padding: 0.7rem;
+
+  font-size: 0.75rem;
+}
+
+.more_list a:hover,
+.more_folder_list a:hover {
+  background-color: #cff7cc;
+
+  border-left: 3px solid #62af49;
+}
+
+.more_list a:focus {
+  background-color: #fff;
+
+  color: #000;
+}
+
+.more_list a:active {
+  color: #000;
+}
+
+.more_list::after {
+  content: "";
+
+  position: absolute;
+
+  display: block;
+
+  width: 0.93rem;
+
+  height: 0.93rem;
+
+  bottom: 97%;
+
+  right: 5.4rem;
+
+  background-color: #fff;
+
+  transform: rotateZ(45deg);
+
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  border-right-color: transparent;
+
+  border-bottom-color: transparent;
+}
+
+.more_folder_list {
+  min-width: 11.87rem;
+
+  border: none !important;
+
+  box-shadow: 0 0 1.56rem #51515133;
+
+  border-radius: 0.62rem;
+}
+
+.more_folder_list a {
+  cursor: pointer;
+}
+
+.more_folder_list a:focus {
+  background-color: #fff;
+
+  color: #000;
+}
+
+.more_folder_list a:active {
+  color: #000;
+}
+
+.more_folder_list::after {
+  content: "";
+
+  position: absolute;
+
+  display: block;
+
+  width: 0.93rem;
+
+  height: 0.93rem;
+
+  bottom: 97%;
+
+  right: 5.4rem;
+
+  background-color: #fff;
+
+  transform: rotateZ(45deg);
+
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  border-right-color: transparent;
+
+  border-bottom-color: transparent;
+}
+
+.team-work {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.bottom-bar {
+  display: flex;
+
+  height: 3.5rem;
+
+  padding: 0.625rem;
+
+  background-color: #f8f9f9;
+
+  border-radius: 0 0 2px 2px;
+
+  border-top: 1px solid #f8f9f9;
+
+  align-items: center;
+
+  /* margin-top: 7rem; */
+
+  position: relative;
+
+  width: 15.2rem;
+
+  justify-content: space-between;
+}
+
+.recent-folder-bg-icon {
+  background-image: url(../../../assets/img/folder-bg.svg);
+
+  height: 12.2rem;
+
+  width: 15.2rem;
+
+  cursor: pointer;
+}
+
+.recent-folder-bg-icon .folder-icon {
+  width: 7rem;
+
+  position: relative;
+
+  left: 4.2rem;
+
+  top: 3.2rem;
+}
+
+.title-content {
+  font-size: 0.85rem;
+
+  overflow: hidden;
+
+  font-weight: bold;
+
+  max-height: 32px;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+
+  color: #000;
+}
+
+.favorite-icon img {
+  margin-top: 1rem;
+}
+
+.share-folder {
+  display: none;
+
+  background-color: #befdac;
+
+  color: #000;
+
+  border-radius: 0 0 2px 2px;
+
+  /* margin-top: 7rem; */
+
+  position: relative;
+
+  width: 15.2rem;
+
+  height: 3.5rem;
+}
+
+#favoriteIcon {
+  width: 1rem;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+
+  overflow: visible;
+
+  width: 8px;
+}

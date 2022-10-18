@@ -1,0 +1,78 @@
+.reset-email .btn {
+  background: #fdfdfd 0% 0% no-repeat padding-box;
+  border: 0.088rem solid #137ef9;
+  border-radius: 0.444rem;
+  color: #137ef9;
+}
+.trunctxtdelete {
+  
+  letter-spacing: 0px;
+  color: #cfd9db;
+}
+.copy-icon {
+  margin-top: 4px;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+}
+.form-group.positon-relative {
+  position: relative;
+}
+.copy-icon img {
+  width: 0.89rem;
+}
+
+.inner-disc img {
+  width: 1.06rem;
+  height: 1.06rem;
+}
+.bold-title {
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+}
+.bold-title.border-abs:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.5em;
+  border-top: 0.044rem solid #D4E5F9;
+  z-index: -1;
+}
+.social-icons {
+  position: absolute;
+  left: 0;
+}
+.social-icons ul {
+  padding: 0;
+}
+.social-icons img {
+  width: 2.67rem;
+}
+.page-title h3{
+  font-weight: bold;
+}
+.social-icons ul{
+  list-style: none;
+}
+.Send-Mail{
+  background-color: #62af49;
+}
+
+.send-email{
+  font-size: 0.87rem;
+}
+.social-media{
+  font-size: 00.87rem;
+}
+
+.custom-control-label.user-status-label{
+  padding-top: 0.1rem;
+}
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #62af49;
+    border: #62af49;
+    box-shadow: none;
+  }

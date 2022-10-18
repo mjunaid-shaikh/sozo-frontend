@@ -1,0 +1,139 @@
+.row.template_list {
+  max-height: 70rem;
+  height: 100vmin;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+} 
+.rename_btn {
+  background-color: #62af49;
+  color: #fff;
+}
+.total-folder-docs {
+  margin-right: 2.2rem;
+}
+#canvasImg{
+  width: 15.4rem;
+}
+.recent-docs-name {
+  font-weight: 800;
+  font-size: 0.81rem;
+}
+.recent-docs-container {
+  width: 15rem;
+  border-radius: 0.6rem;
+  position: relative;
+  display: none;
+}
+.recent-docs .click-to-open {
+  color: #ffffff;
+  background: #ffffff2e 0% 0% no-repeat padding-box;
+  border-radius: 0.5rem;
+  opacity: 1;
+  outline: none;
+  border: none;
+  padding: 0.22rem 0.93rem 0.35rem 0.93rem;
+  position: absolute;
+  top: 5.5rem;
+  left: 3.8rem;
+}
+.recent-docs .group-logo {
+  position: absolute;
+  top: 9.8rem;
+  right: 0.7rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+/* .recent-docs-img:after {
+  border-radius: 0.6rem 0.6rem 0 0;
+  content: "";
+  background-color: #00000075;
+  position: absolute;
+  width: 15rem;
+  height: 12.25rem;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+} */
+.recent-docs-img {
+  height: 12.25rem;
+  width: 100%;
+}
+.lastchange-details {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  height: 3.5rem;
+
+  background-color: #f8f9f9;
+
+  border-radius: 0 0 0.6rem 0.6rem;
+
+  overflow: hidden;
+}
+#favoriteIcon {
+  display: none;
+  width: 1rem;
+}
+.share-and-more {
+  margin-top: -0.1rem;
+  display: none;
+  background-color: #befdac;
+  height: 3.5rem;
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+.more_list a:focus {
+  background-color: #fff;
+  color: #000;
+}
+
+.more_list a:active {
+  color: #000;
+}
+
+.more_list a {
+  padding: 0.56rem 0.62rem !important;
+  margin-bottom: 0.62rem;
+  font-size: 0.75rem;
+}
+
+.more_list::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.93rem;
+  height: 0.93rem;
+  bottom: 97%;
+  right: 9.4rem;
+  background-color: #fff;
+  transform: rotateZ(45deg);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+.more_list a {
+  cursor: pointer;
+}
+.more_list a:hover {
+  background-color: #ccc;
+}
+.more_list {
+  min-width: 11.87rem;
+  transform: translate(1.75rem, 3.5rem) !important;
+  border: none !important;
+  box-shadow: 0 0 1.56rem #51515133;
+  border-radius: 0.62rem;
+}
+.favorite-icon img{
+  width: 1rem;
+}
+.favorite-icon{
+  margin-top: 0.75rem;
+}
+::-webkit-scrollbar {
+  height: 8px;
+  overflow: visible;
+  width: 8px;
+}

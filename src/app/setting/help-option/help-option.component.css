@@ -1,0 +1,83 @@
+.bg-help-banner {
+  /*  */
+  height: 11.11rem;
+  background-repeat: no-repeat;
+
+  margin-top: -2.4rem;
+  background-size: cover !important;
+  background-position: center;
+}
+.dashboard.help-option-padding {
+  padding-top: 0.66rem;
+}
+.help-maginfied {
+  position: absolute;
+  top: 15%;
+  left: 2%;
+}
+.help-maginfied img {
+  width: 0.89rem;
+}
+.card.custom-box-shadow {
+  box-shadow: 0px 0.44rem 0.88rem #00000012;
+  border-radius: 0.31rem;
+  border: 0;
+}
+.avatar-group {
+  display: flex;
+  justify-content: flex-start;
+}
+.avatar-group .avatar {
+  transition: all 0.25s ease;
+}
+
+.avatar {
+  white-space: nowrap;
+  background-color: #c3c3c3;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  display: inline-flex;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.avatar-group .avatar .avatar-content,
+.avatar-group .avatar img {
+  box-shadow: 0 0 0 0.08rem #fff, inset 0 0 0 1px rgb(34 41 47 / 7%);
+}
+.avatar img {
+  border-radius: 50%;
+}
+.avatar-group .avatar.pull-up:hover {
+  transform: translateY(-4px) scale(1.07);
+}
+.avatar-group .avatar:hover {
+  transition: all 0.25s ease;
+}
+.multi-avtar p {
+  letter-spacing: 0px;
+  color: #202225;
+}
+.help-img img {
+  width: 3.55rem;
+}
+.help-primary {
+  letter-spacing: 0px;
+  color: #137ef9;
+}
+.card-help .card-text {
+  color: #515859;
+}
+.help-search input {
+  box-shadow: 0px 0.44rem 0.88rem #00000029;
+}
+.avatar-group .avatar:not(:first-child) {
+  margin-left: -0.55rem;
+}
+
+.text-white {
+  font-weight: bold;
+}

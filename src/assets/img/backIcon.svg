@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="119" height="53" viewBox="0 0 119 53">
+  <g id="Group_17491" data-name="Group 17491" transform="translate(-2 2)">
+    <g id="Rectangle_6638" data-name="Rectangle 6638" transform="translate(2 -2)" fill="#fff" stroke="#47ac28" stroke-width="1.5">
+      <rect width="119" height="53" rx="7" stroke="none"/>
+      <rect x="0.75" y="0.75" width="117.5" height="51.5" rx="6.25" fill="none"/>
+    </g>
+    <g id="Group_18972" data-name="Group 18972" transform="translate(20.429 11)">
+      <path id="Path_56595" data-name="Path 56595" d="M0,0H27V27H0Z" transform="translate(0 0)" fill="none"/>
+      <path id="Path_56596" data-name="Path 56596" d="M9.5,14,5,9.5,9.5,5M5,9.5H17.375a4.5,4.5,0,1,1,0,9H16.25" transform="translate(0.625 0.625)" fill="none" stroke="#47ac28" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <text id="Back" transform="translate(54.571 31)" fill="#47ac28" font-size="20" font-family="NunitoSans-SemiBold, Nunito Sans" font-weight="600"><tspan x="0" y="0">Back</tspan></text>
+  </g>
+</svg>

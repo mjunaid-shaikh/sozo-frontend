@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42.183" height="31.183" viewBox="0 0 42.183 31.183">
+  <g id="Group_18914" data-name="Group 18914" transform="translate(-46.408 -16.047)">
+    <g id="video-camera_4_" data-name="video-camera (4)" transform="translate(53.014 21.766)">
+      <g id="Group_18845" data-name="Group 18845" transform="translate(0 0)">
+        <g id="Group_18844" data-name="Group 18844">
+          <path id="Path_56539" data-name="Path 56539" d="M20.039,96.512H3.876A3.887,3.887,0,0,0,0,100.388V113.45a3.887,3.887,0,0,0,3.876,3.876H20.039a3.887,3.887,0,0,0,3.876-3.876V100.388A3.863,3.863,0,0,0,20.039,96.512Z" transform="translate(0 -96.512)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_18847" data-name="Group 18847" transform="translate(25.853 2.069)">
+        <g id="Group_18846" data-name="Group 18846" transform="translate(0 0)">
+          <path id="Path_56540" data-name="Path 56540" d="M348.209,123.91a1.974,1.974,0,0,0-.659.271l-6.047,3.488v8.992l6.085,3.488a2.3,2.3,0,0,0,3.178-.853,2.367,2.367,0,0,0,.31-1.163V126.158A2.333,2.333,0,0,0,348.209,123.91Z" transform="translate(-341.504 -123.847)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+    <line id="Line_284" data-name="Line 284" x2="38" y2="27" transform="translate(48.5 18.139)" fill="none" stroke="#fe4f54" stroke-linecap="round" stroke-width="3"/>
+  </g>
+</svg>

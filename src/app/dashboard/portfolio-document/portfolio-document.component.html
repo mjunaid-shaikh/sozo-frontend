@@ -1,0 +1,242 @@
+<div id="loader">
+  <div class="loader loader1"></div>
+  <div class="loader loader2"></div>
+  <div class="loader loader3"></div>
+  <div class="loader loader4"></div>
+  <div class="loader loader5"></div>
+</div>
+<div
+  class="modal fade"
+  id="renameDocumentModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 0.93rem">
+      <div class="modal-header rename_head">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <strong>Rename Project</strong>
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <img src="assets/img/dashboardSharewithOthersClose.svg" width="10" />
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">
+              Enter your new project Name:
+            </label>
+            <input
+              type="text"
+              class="form-control new_rename_box"
+              id="recipient-name"
+              style="border-color: #d4e5f9"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer rename_doc_btn">
+        <button
+          type="button"
+          class="btn cancel_btn"
+          data-dismiss="modal"
+          style="border: 1px solid #b8b8b8"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn rename_btn"
+          (click)="renameDocumentRequestHandler()"
+          data-dismiss="modal"
+        >
+          Rename
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <h3 class="d-flex justify-content-center mb-3" *ngIf="!showPortfolioEmpty">
+    Portfolio Empty!
+  </h3>
+  <div class="row template_list">
+    <div
+      *ngFor="let item of totalFolderDocs; let i = index"
+      [id]="item.sozo._id"
+      draggable="true"
+      class="col-auto mb-4 ml-1 total-folder-docs"
+    >
+      <div
+        class="recent-docs-container recent-docs d-block"
+        [id]="item.sozo._id + '1'"
+      >
+        <div
+          class="recent-docs-img"
+          role="button"
+          (click)="openRecentDocsHandler(item)"
+        >
+          <img id="canvasImg" [src]="item.sozo.imgData" class="h-100" alt="" />
+        </div>
+       
+        <div
+          class="group-logo"
+          [ngStyle]="{
+            display: item.isShare ? 'flex' : 'none'
+          }"
+        >
+          <img
+            src="assets/img/Group_user.svg"
+            style="width: 1.95rem"
+            alt="groupuser"
+          />
+        </div>
+        <div class="lastchange-details no-gutters px-3">
+          <div class="">
+            <h3 class="recent-docs-name mb-1 mt-4">
+              {{ item.sozo.name }}
+            </h3>
+            <label class="recent-docs-name">{{
+              item.createdAt | date: "medium"
+            }}</label>
+          </div>
+
+          <div class="">
+            <img
+              src="assets/img/star-icon.png"
+              id="favoriteIcon"
+              [ngStyle]="{
+                display: item.isFavorite ? 'block' : 'none'
+              }"
+            />
+          </div>
+        </div>
+        <div class="row share-and-more no-gutters">
+          <div
+            class="col-6 center"
+            [ngStyle]="{
+              display:
+                item.access === 'full' || item.access === 'editshare'
+                  ? 'flex'
+                  : 'none'
+            }"
+          >
+            <div
+              class="d-flex flex-column align-items-center"
+              data-toggle="modal"
+              data-target="#shareModal"
+              role="button"
+              (click)="
+                savePermissionsId(
+                  item.viewLink,
+                  item.editLink,
+                  item.editShareLink,
+                  item.sozo._id,
+                  item.sozo.name
+                )
+              "
+            >
+              <img
+                src="assets/img/share_temp.svg"
+                class=""
+                style="width: 1.31rem"
+              />
+              <h6 class="text-black m-0">Share</h6>
+            </div>
+          </div>
+          <div class="col-6 center">
+            <div
+              class="d-flex flex-column align-items-center pt-2 more-option"
+              role="button"
+              data-toggle="dropdown"
+              (click)="moreOption(item.sozo._id)"
+            >
+              <img src="assets/img/more_opt_temp.svg" style="width: 1.31rem" />
+              <h6 class="text-black m-0 mt-2">More</h6>
+            </div>
+            <div class="dropdown-menu more_list share-more-option">
+              <a class="dropdown-item" (click)="shouldOpenRecentDocsHandler()">
+                Open
+              </a>
+              <a
+                [ngClass]="{ 'more-user-opt': item.access === 'readonly' }"
+                class="dropdown-item"
+                data-toggle="modal"
+                [attr.data-target]="
+                  item.access === 'full' ||
+                  item.access === 'editshare' ||
+                  item.access === 'edit'
+                    ? '#renameDocumentModal'
+                    : ''
+                "
+                data-whatever="@mdo"
+                [ngStyle]="{
+                  color: item.access === 'readonly' ? '#ccc' : '#000'
+                }"
+                (click)="renameDocumentHandler(item.sozo._id)"
+              >
+                Rename
+              </a>
+
+              <a
+                [ngClass]="{
+                  'more-user-opt':
+                    item.access === 'readonly' ||
+                    item.access === 'edit' ||
+                    item.access === 'editshare'
+                }"
+                class="dropdown-item delete-btn"
+                data-toggle="modal"
+                (click)="
+                  item.access === 'full' && deleteTemplate(item.sozo._id, false)
+                "
+                [attr.data-target]="
+                  item.isOwner && item.isShare
+                    ? '#shareDeleteDialogBox'
+                    : item.isOwner
+                    ? '#deleteDialogBox'
+                    : ''
+                "
+                [style.display]="item.isOwner ? 'block' : 'none'"
+                [ngStyle]="{
+                  color: item.isOwner ? '#000' : '#ccc'
+                }"
+              >
+                Delete
+              </a>
+              <a
+                class="dropdown-item"
+                id="addFavorite"
+                [ngStyle]="{
+                  display: item.isFavorite ? 'none' : 'block'
+                }"
+                (click)="addStarredTemplate(item.sozo._id)"
+              >
+                Add to favorite
+              </a>
+              <a
+                class="dropdown-item"
+                id="removeFavorite"
+                [ngStyle]="{
+                  display: item.isFavorite ? 'block' : 'none'
+                }"
+                (click)="removeStarredTemplate(item.sozo._id)"
+              >
+                Remove from favorite
+              </a>
+              <a class="dropdown-item"> Get Changed Notifications </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

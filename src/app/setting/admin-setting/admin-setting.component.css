@@ -1,0 +1,229 @@
+/* .backBtn{
+  height: 2.9rem;
+  margin-left: 2.1rem;
+  margin-top: 1rem;
+} */
+.heading {
+  margin: 2rem 0rem 0.5rem 3rem;
+  font-weight: 700;
+  color: #202225;
+  font-size: 2.4rem;
+  width: 18.25rem;
+  height: 3rem;
+}
+hr {
+  margin-left: 3rem;
+  margin-right: 7rem;
+}
+
+h4 {
+  margin-left: 3rem;
+  color: #202225;
+}
+.searchBox {
+  outline: none;
+  padding: 0rem 1.5rem;
+  width: 18.5rem;
+  font-size: 1rem;
+  height: 2.5rem;
+  color: #000;
+  margin-left: 3rem;
+}
+span {
+  color: #515859;
+  font-family: Nunito Sans;
+  margin-left: 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.userContainer {
+  margin: 0.1rem 0.1rem 0.1rem 1rem;
+  width: 43rem;
+}
+.userData {
+  margin: 0.5rem;
+}
+
+.footerBtn {
+  margin-right: 7rem;
+  height: 3rem;
+  display: none !important;
+}
+.btnBackground {
+  background-color: #46ab27;
+  color: #ffffff;
+}
+.cancelBtn {
+  border-color: green;
+  color: #46ab27;
+  width: 7.7rem;
+  font-weight: bold;
+}
+.profileImg {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.7rem;
+}
+input::placeholder {
+  padding-left: 0.2rem;
+  color: #c7cbcc;
+}
+.joinedDate {
+  color: #c7cbcc;
+}
+.plusIcon {
+  height: 0.7rem;
+  width: 0.7rem;
+  margin-top: -0.2rem;
+}
+.editBtn {
+  width: 6rem;
+  height: 2.6rem;
+  border-color: #eaeaea;
+  background: none;
+  text-align: center;
+  padding-top: 0.1rem;
+}
+.editIcon {
+  margin-top: -0.2rem;
+  height: 0.9rem;
+}
+.mainContainer {
+  width: 46rem;
+  height: 20rem;
+  border-color: #ededed;
+  margin-left: 3rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.btnShadow {
+  box-shadow: 0px 10px 10px #0000001a;
+  transition: none;
+}
+.addUserLabelName {
+  color: #cfd9db;
+  font: normal normal normal Nunito Sans;
+}
+.addUserInput {
+  border-color: #d4e5f9 !important;
+  font-family: Nunito Sans;
+  color: #202225;
+  font-weight: 600 !important;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #7a8081;
+  background-color: #47ac28;
+  /* background-color: RED; */
+}
+#inputName:focus {
+  outline: none;
+  box-shadow: none !important;
+  /* border:1px solid #ccc !important; */
+}
+.editBtn:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.editUserCheckbox {
+  cursor: pointer;
+}
+
+.editUserBtn {
+  width: 7rem;
+  height: 2.4rem;
+}
+.editUserCancelBtn {
+  border-color: #b8b8b8;
+  font-family: Nunito Sans;
+  font-weight: bold;
+  color: #b1b1b1;
+}
+.editUserAddBtn {
+  background-color: #46ab27;
+  border-color: #b8b8b8;
+  font-family: Nunito Sans;
+  font-weight: bold;
+  color: #ffffff;
+}
+.customSwitchBtn {
+  width: 0rem !important;
+}
+.addUserHeader {
+  margin-bottom: -0.7rem !important;
+  margin-top: 0.5rem;
+}
+.addUsermodalPadding {
+  padding: 0rem 1.5rem 1rem 1.5rem !important;
+  width: 35rem !important;
+}
+
+/* ADD A USER MODAL [updated] */
+
+.modelBox {
+  width: 35rem !important;
+}
+
+.addTeamMembermodalMargin {
+  margin: 1rem 2rem -2rem 2rem !important;
+  font-family: Nunito Sans;
+  /* font-weight: bolder; */
+  color: #202225;
+}
+
+.addMemberFooter {
+  margin-top: 2rem !important;
+  margin-right: 2.2rem !important;
+}
+.modelFooterBtn {
+  width: 7rem !important;
+  height: 2.4rem;
+  background-color: #46ab27;
+  border: #b8b8b8;
+  color: #ffffff;
+  font-family: Nunito Sans;
+}
+
+.requiredInput::after {
+  content: " *";
+  color: red;
+}
+
+/* error form form */
+.error {
+  color: red;
+}
+.footerCancelBtn {
+  color: #b1b1b1;
+  font-family: Nunito Sans;
+  border-color: #b8b8b8 !important;
+  font-weight: 600;
+  width: 7rem;
+}
+.inputonlyNumber input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.addMemberLabelName {
+  color: #cfd9db;
+  font-family: Nunito Sans;
+}
+/* // ERROR ALERT  */
+.errorAlert {
+  font-family: Nunito Sans;
+  margin: 0 !important;
+  color: #dc3545 !important;
+  font-weight: 400 !important;
+  font-size: 87.5% !important;
+}
+.invalidFiled {
+  border: 1px solid #dc3545 !important;
+}
+
+/* // HEADING */
+.addTeamModelHeader {
+  font-weight: 700 !important;
+  font-family: Nunito Sans;
+  color: #202225;
+}

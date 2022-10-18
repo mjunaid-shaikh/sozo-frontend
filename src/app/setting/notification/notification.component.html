@@ -1,0 +1,169 @@
+<div class="col-md-auto ml-sm-auto col-lg-auto px-4 dashboard">
+  <div class="page-title">
+    <h3>Notifications</h3>
+    <!-- <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text
+    </p> -->
+    <hr />
+  </div>
+
+  <form class="validate-form mt-2" novalidate="novalidate">
+    <div class="row">
+      <div class="sub-title col-12">
+        <div class="col-md-12 row paragraf mt-1 pl-0">
+          <div class="col-md-6">
+            <h5 class="sub-title-notification">Conversation</h5>
+            <div class="custom-control custom-checkbox d-flex">
+              <input
+              id="commentSozo"
+                name="includeProducts"
+                class="custom-control-input"
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="commentSozo"
+                >Someone comments on SOZO
+              </label>
+            </div>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="repliesComment"
+                name="includeProducts"
+                class="custom-control-input"
+                checked=""
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="repliesComment"
+                >Someone replies to one of my comments
+              </label>
+            </div>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="mentionComment"
+                name="includeProducts"
+                class="custom-control-input"
+                checked=""
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="mentionComment"
+                >Someone @mentions me in comments
+              </label>
+            </div>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="commentContent"
+                name="includeProducts"
+                class="custom-control-input"
+                checked=""
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="commentContent"
+                >Someone comments on content added
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5 class="sub-title-notification">Workspace Member Activity</h5>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="whiteboardRoom"
+                name="includeProducts"
+                class="custom-control-input"
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="whiteboardRoom"
+                >Someone creates Whiteboard in Room or Canvas I have created.
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 row paragraf mt-3 pl-0">
+          <div class="col-md-6">
+            <h5 class="sub-title-notification">Access and Notifications</h5>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="addSozoFirstTime"
+                name="includeProducts"
+                class="custom-control-input"
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="addSozoFirstTime"
+                >Someone enters one of my SOZO for the first time.
+              </label>
+            </div>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="notMember"
+                name="includeProducts"
+                class="custom-control-input"
+                checked=""
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="notMember"
+                >Someone accepts my invitation who is not member of my Canvas.
+              </label>
+            </div>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="subCanvas"
+                name="includeProducts"
+                class="custom-control-input"
+                checked=""
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="subCanvas"
+                >Someone accepts my invitation who is not member of my sub-Canvas.
+              </label>
+            </div>
+         
+          </div>
+          <div class="col-md-6">
+            <h5 class="sub-title-notification">Other</h5>
+            <div class="custom-control custom-checkbox d-flex mt-2">
+              <input
+              id="latestUpdate"
+                name="includeProducts"
+                class="custom-control-input"
+                checked=""
+                type="checkbox"
+              />
+              <label
+                class="custom-control-label d-flex align-items-center w-100 "
+                for="latestUpdate"
+                >Email me the latest news and updates about SOZO
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 my-3">
+        <div class="button-wizard float-right">
+          <button type="button" class="btn mt-2 cancel-button" (click)="cancelBtn()">Cancel</button>
+          <button
+            type="submit"
+            class="save-changes btn mt-2 ml-2 active"
+          >
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

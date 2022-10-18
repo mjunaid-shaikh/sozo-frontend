@@ -1,0 +1,336 @@
+.trunctxt {
+  letter-spacing: 0px;
+  color: #cfd9db;
+  opacity: 1;
+}
+.page-title h3 {
+  font-weight: bold;
+  color: #202225;
+  padding-top: 1rem !important;
+}
+.page-title p {
+  color: #202225;
+}
+.bold-title {
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #202225;
+}
+.reset-email .btn {
+  background: #fdfdfd 0% 0% no-repeat padding-box;
+  border: 0.088rem solid #137ef9;
+  border-radius: 0.44rem;
+  color: #137ef9;
+}
+.trunctxtdelete {
+  letter-spacing: 0px;
+  color: #cfd9db;
+}
+.billing-media h6 {
+  letter-spacing: 0px;
+  color: #202225;
+}
+.billing-media small {
+  letter-spacing: 0px;
+  color: #7a8081;
+}
+.billing-card {
+  box-shadow: 0px 15px 35px #00000008;
+  border: 2px solid #e9eeef;
+  border-radius: 10px;
+}
+.members-tabs li.active a,
+.members-tabs li:hover a {
+  border-bottom: 3px solid #62af49;
+  color: #62af49;
+}
+.members-tabs li {
+  /* border-bottom: 2px solid transparent; */
+  padding: 0 12px;
+}
+.members-tabs li:hover a,
+.members-tabs li.active a {
+  color: #62af49;
+}
+.members-tabs a {
+  color: #7a8081;
+  cursor: pointer;
+}
+.members-tabs {
+  font-weight: bold;
+}
+.media.members .avatar img {
+  height: 40px;
+  width: 40px;
+  white-space: nowrap;
+  background-color: #c3c3c3;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  display: inline-flex;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.members-media-list {
+  padding-left: 0;
+}
+.members-name h5 {
+  letter-spacing: 0px;
+  color: #202225;
+}
+.members-meta-item span {
+  letter-spacing: 0px;
+  color: #cfd9da;
+  opacity: 1;
+}
+.members-meta-active span {
+  letter-spacing: 0px;
+  color: #137ef9;
+  opacity: 1;
+}
+.members .card-body {
+  border: 1px solid #e9eeef;
+  border-radius: 5px;
+  max-height: 17.77rem;
+}
+
+/* width */
+.members .card-body::-webkit-scrollbar {
+  width: 0.31rem;
+}
+
+/* Track */
+.members .card-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.members .card-body::-webkit-scrollbar-thumb {
+  background: #137ef9;
+}
+
+/* Handle on hover */
+.members .card-body::-webkit-scrollbar-thumb:hover {
+  background: #137ef9;
+}
+.billing-plan .card-header {
+  background: transparent linear-gradient(180deg, #ffffff 0%, #e0eeff 100%) 0%
+    0% no-repeat padding-box;
+}
+
+.billing-plan .card-body {
+  border: 2px solid #f1faff;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.billing-plan span {
+  letter-spacing: 0px;
+  color: #515859;
+}
+.billing-plan li {
+  margin-top: 1rem;
+}
+.billing-plan li img {
+  width: 0.89rem;
+}
+.billing-plan .card-title {
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #202225;
+}
+.billing-content img {
+  width: 2.67rem;
+}
+.members-tabs small {
+  letter-spacing: 0px;
+  color: #cfd9da;
+}
+.billing-plan .btn-primary.active {
+  background: #137ef9 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 10px #137ef91a;
+  border-radius: 10px;
+}
+.card-header ul {
+  list-style: none;
+}
+.billing-cycle {
+  font-weight: bold;
+}
+.billing-subscription {
+  color: #202225;
+}
+.billing-date {
+  color: #202225;
+}
+.generate-button {
+  border: 2px solid rgb(19 126 249);
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: Nunito Sans;
+  width: 8rem;
+  height: 2.6rem;
+}
+.cancelsubsription-btn {
+  border: 2px solid #ff5055;
+  border-radius: 5px;
+  color: #ff5055;
+}
+.try-button {
+  border: 1px solid rgb(184 184 184);
+  border-radius: 10px;
+  opacity: 1;
+
+  padding: 4px 26px 4px 26px;
+}
+
+.custom-switch .custom-control-label::before {
+  cursor: pointer !important;
+}
+.custom-switch .custom-control-label::after {
+  cursor: pointer !important;
+}
+.card-number {
+  color: #7a8081;
+}
+
+.cancel-btn {
+  border: 1px solid #cfd9db;
+  color: #cfd9db;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.cancel-btn:hover {
+  color: #cfd9db;
+}
+
+.add-btn {
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.form-container {
+  color: #7a8081;
+}
+.addTeamMemberBtn {
+  margin-top: -3rem;
+  background-color: #46ab27;
+  font-family: Nunito Sans;
+  font-weight: bold;
+}
+.addTeamMemberPlusIcon {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-top: -0.3rem;
+}
+.addMemberLabelName {
+  color: #cfd9db;
+  font-family: Nunito Sans;
+}
+.addTeamMembermodalMargin {
+  margin: 1rem 2rem -2rem 2rem !important;
+  font-family: Nunito Sans;
+  /* font-weight: bolder; */
+  color: #202225;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #7a8081;
+  background-color: #47ac28;
+}
+.invalidFiled {
+  border: 1px solid #dc3545 !important;
+}
+
+.requiredInput::after {
+  content: " *";
+  color: red;
+}
+
+/* error form */
+.error {
+  color: #dc3545;
+}
+.addMemberInput {
+  border-color: #d4e5f9;
+  font-family: Nunito Sans;
+  font-weight: 600 !important;
+}
+.addMemberFooter {
+  margin-top: 2rem !important;
+  margin-right: 2.2rem !important;
+  margin-bottom: 1rem !important;
+}
+.modelFooterBtn {
+  width: 7rem !important;
+  height: 2.4rem;
+  background-color: #46ab27;
+  border: #b8b8b8;
+  color: #ffffff;
+  font-family: Nunito Sans;
+}
+.addTeamModelHeader {
+  font-weight: 700 !important;
+  font-family: Nunito Sans;
+  color: #202225;
+}
+.modelBox {
+  width: 35rem !important;
+}
+
+.paymentMethodModel {
+  width: 100% !important;
+  height: 3.5rem;
+}
+.modalHeaderHeight {
+  margin-bottom: -1.3rem !important;
+}
+.paymentHeader {
+  color: #202225;
+  font-family: Nunito Sans;
+  margin-top: 1rem !important;
+  font-weight: 900;
+}
+.paymentLabelName {
+  color: #c7cbcc;
+  font-family: Nunito Sans;
+}
+.paymentMethodInput {
+  border-color: #d4e5f9;
+  font-family: Nunito Sans;
+  color: #202225;
+  font-size: 1rem;
+  text-transform: uppercase;
+  /* -webkit-appearance: none; */
+}
+.paymentMethodInput input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.billingPmtModel {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+.paymentAddBtn {
+  width: 7rem !important;
+  height: 2.4rem;
+  background-color: #46ab27;
+  border: #b8b8b8;
+  color: #ffffff;
+  font-family: Nunito Sans;
+}
+.footerCancelBtn {
+  color: #b1b1b1;
+  font-family: Nunito Sans;
+  border-color: #b8b8b8 !important;
+  font-weight: 600;
+  width: 7rem;
+}
+/* input.ng-invalid.ng-touched.ng-dirty {
+  border: 1px solil red !important;
+} */

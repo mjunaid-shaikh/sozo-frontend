@@ -1,0 +1,352 @@
+<div class="container-fluid mt-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="border-bottom pb-2">
+        <div class="subscription-label mt-2 font-weight-bold">Subscription</div>
+        <div class="subscription-description">
+          You are currently on a {{ userData?.order?.current_plan.name }} Plan
+          of SOZO.
+          {{
+          userData?.order?.current_plan.name == "Trial"
+          ? "You can upgrade
+          your account for full access by selecting one of the options below."
+          : ""
+          }}
+        </div>
+      </div>
+
+      <div class="choose-package-label my-3 font-weight-bold">
+        Choose your Package
+      </div>
+
+      <div class="d-flex mb-5">
+        <div class="package-container boxShadow rounded">
+          <div class="mb-1">
+            <div class="p-3 trialPackage">
+              <div class="d-flex align-items-center justify-content-between">
+                <span class="monthly-yearly-header font-weight-bold">{{
+                  userData?.order?.current_plan.name
+                  }}</span>
+
+                <button type="button" class="btn btn-success current-package">
+                  CURRENT PACKAGE
+                </button>
+              </div>
+              &nbsp; &nbsp;
+
+              <div class="trialPackagePadd">
+                <div class="d-flex align-items-center justify-content-center">
+                  <span class="text-success monthly-yearly-header font-weight-bold" style="font-size: 2rem">${{
+                    userData?.order?.current_plan.monthly_price
+                    ? userData?.order?.current_plan.monthly_price
+                    : userData?.order?.current_plan.annualy_price
+                    ? userData?.order?.current_plan.annualy_price.monthly
+                    : 0
+                    }}&nbsp;</span>
+                  <span class="choose-package-label">/month</span>
+                </div>
+
+                <div class="d-flex justify-content-center monthly-yearly-label mb-3">
+                  {{ getPlanTypeInfo(userData?.order?.current_plan, null) }}
+                </div>
+              </div>
+            </div>
+            <div class="px-4 pb-2 pt-2">
+              <span class="descriptionTitle">Feature</span>
+              <div class="d-flex align-items-start mt-3">
+                <img src="assets/img/greenRadioButtonIcon.svg" style="width: 1rem" class="mr-2" />
+                <span class="monthly-yearly-label">{{ userData?.order?.current_plan.editable }} editable
+                  boards</span>
+              </div>
+
+              <div class="d-flex align-items-start my-3">
+                <img src="assets/img/greenRadioButtonIcon.svg" style="width: 1rem" class="mr-2" />
+                <span class="monthly-yearly-label">{{ userData?.order?.current_plan.objects }} objects per
+                  board</span>
+              </div>
+
+              <div class="d-flex align-items-start">
+                <img src="assets/img/greenRadioButtonIcon.svg" style="width: 1rem" class="mr-2" />
+                <span class="monthly-yearly-label">{{ userData?.order?.current_plan.storage }} GB of
+                  storage</span>
+              </div>
+
+              <div class="d-flex align-items-start my-3">
+                <img src="assets/img/greenRadioButtonIcon.svg" style="width: 1rem" class="mr-2" />
+                <span class="monthly-yearly-label">${{ userData?.order?.current_plan.additional_users }} per
+                  additional users per month
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- dynamic list package  -->
+
+        <div *ngFor="let item of planList; let i = index" class="boxShadow">
+          <div
+            *ngIf="userData?.order?.current_plan?.name=='Team Plan'?return :userData?.order?.current_plan?.name!=item.plan_name">
+            <div *ngIf="userData?.order?.current_plan._id != item._id" class="package-container rounded">
+              <div class="mb-1">
+                <div class="cardBgColor p-3" [ngStyle]="{ background: i == 1 ? '#FAF7FC' : '#F8FBFF' }">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <span class="monthly-yearly-header font-weight-bold">{{ item.plan_name }}
+                    </span>
+
+                    <!-- <button
+                    *ngIf="item?._id == userData?.plans?._id"
+                    type="button"
+                    class="btn btn-success current-package"
+                  >
+                    CURRENT PACKAGE
+                  </button> -->
+                  </div>
+                  &nbsp; &nbsp;
+
+                  <div class="d-flex align-items-center justify-content-center">
+                    <span class="monthly-yearly-header font-weight-bold" style="color: #0054c3; font-size: 2rem"
+                      [ngStyle]="{ color: i == 1 ? '#692A8F' : '#0054C3' }">${{
+                      toggleFlag[i]
+                      ? item?.monthly?.monthly_price
+                      : item?.annualy?.annualy_price?.annualy
+                      }}&nbsp;</span>
+                    <span class="choose-package-label">/{{ toggleFlag[i] ? "Monthly" : "Yearly" }}</span>
+                  </div>
+
+                  <!-- TOGGLE SWITCH BUTTON -->
+                  <div class="d-flex justify-content-center btn-container pb-2">
+                    <label class="btn-color-mode-switch">
+                      <input type="checkbox" name="color_mode" [ngModel]="data"
+                        (ngModelChange)="modelChangeFn($event, i)" id="color_mode" />
+                      <label for="color_mode" data-on="Month" data-off="Yearly"
+                        class="btn-color-mode-switch-inner_{{ i }}"></label>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center monthly-yearly-label mb-3">
+                    {{
+                    toggleFlag[i]
+                    ? "Single user, paid monthly"
+                    : "Single user paid monthly at $" +
+                    item?.annualy?.annualy_price?.monthly
+                    }}
+                    <!-- {{ getPlanTypeInfo(item,toggleFlag[i] ) }} -->
+                  </div>
+                  &nbsp;&nbsp;
+                  <div class="d-flex justify-content-center px-3 pb-3">
+                    <button type="button" class="btn buy-now-btn w-50 py-2" *ngIf="item?._id != userData?.plans?._id"
+                      (click)="
+                      item.type != 'Trial' && stripePlansCheckout(item._id)
+                    " [ngStyle]="{ background: i == 1 ? '#692A8F' : '#0054C3' }">
+                      Buy Now
+                    </button>
+
+                    <div *ngIf="item?._id == userData?.plans?._id" class="d-flex align-items-cneter buy-now-btn">
+                      <!-- <button
+                      type="button"
+                      class="btn btn-white px-4 try-btn mr-2"
+                    >
+                      Try
+                    </button> -->
+
+                      <button type="button" class="btn buy-now-button w-100 py-2 text-white shadow-none" (click)="
+                        stripePlansCheckout(
+                          toggleFlag[i] ? item.monthly._id : item.annualy._id
+                        )
+                      " [attr.style]="
+                        i == 1
+                          ? 'background-color: #FAF7FC; border-color: #692A8F !important; color:#692A8F !important '
+                          : 'background-color: #F8FBFF; border-color: #0054C3 !important; color:#0054C3 !important'
+                      ">
+                        Buy Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="packageDescription px-4 pb-2 pt-2">
+                  <span class="descriptionTitle">Feature</span>
+
+                  <div *ngIf="toggleFlag[i]; else loggedOut">
+                    <div class="d-flex align-items-start mt-3" *ngFor="let item of item.annualy.feature">
+                      <img src="assets/img/greenRadioButtonIcon.svg" style="width: 1rem" class="mr-2" />
+                      <span class="monthly-yearly-label">{{ item }} editable boards</span>
+                    </div>
+                  </div>
+
+                  <ng-template #loggedOut>
+                    <div class="d-flex align-items-start mt-3" *ngFor="let item of item.monthly.feature">
+                      <img src="assets/img/greenRadioButtonIcon.svg" style="width: 1rem" class="mr-2" />
+                      <span class="monthly-yearly-label">{{ item }} editable boards</span>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- plan details section -->
+      <div class="mb-2">
+        <div class="font-weight-bold plan-details-label">Plan Details</div>
+        <div class="subscription-description">
+          You are currently on the
+          {{ userData?.order?.current_plan.name }} single user plan.
+          <span class="text-center text-danger" *ngIf="userData?.order?.status == 'Canceled'">
+            You cancelled the current plan on
+            {{ userData?.order?.canceled_at | date: "MMM dd, yyyy hh:mm a" }}.
+            Your current plan will end on
+            {{ userData?.order?.plan_end_date | date: "MMM dd, yyyy" }}</span>
+        </div>
+      </div>
+      <div
+        class="d-flex align-items-center border rounded p-3 shadow align-items-center justify-content-between flex-fill">
+        <div class="d-flex">
+          <img src="assets/img/planDetailsIcon.svg" style="width: 2.5rem" class="mr-3" />
+          <div class="d-flex flex-column">
+            <div class="cancel-button font-weight-bold">
+              {{
+              userData?.order?.current_plan?.type == "Trial"
+              ? "Trial Period"
+              : userData?.order?.current_plan?.name
+              }}
+              &nbsp;<span class="text-primary">( Currently )</span>
+            </div>
+            <span class="plan-details-span" *ngIf="!planExpire">{{ calculateDate() }} Days are left.</span>
+            <span class="plan-details-span text-danger" *ngIf="planExpire">
+              Your trial period is expired. Kindly Upgrade now to continue your
+              services.</span>
+          </div>
+        </div>
+        <div class="d-flex" *ngIf="userData?.order?.status != 'Canceled'">
+          <button type="button" class="btn border-danger d-flex align-items-center" data-target="#cancelSubscription"
+            data-toggle="modal" *ngIf="userData?.order?.current_plan?.type != 'Trial'">
+            <img src="assets/img/cancelicon.svg" style="width: 0.8rem" class="mr-1" />
+            <span class="text-danger cancel-button">Cancel</span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="userPaymentDetail" class="table-responsive mt-5">
+        <div class="font-weight-bold plan-details-label">Payment Details</div>
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Currency</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of userPaymentDetail; let i = index">
+              <td scope="row">{{ i + 1 }}</td>
+              <td>{{ item.date | date: "MMM dd, yyyy hh:mm aa" }}</td>
+              <td>${{ item.amount }}</td>
+              <td>{{ item.currency | uppercase }}</td>
+              <td>{{ item.status | uppercase }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- **** Cancel Subscription modal **** -->
+  <div class="modal fade" id="cancelSubscription" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content px-3">
+        <div class="modal-body py-4">
+          <div class="d-flex align-items-center py-2">
+            <div class="d-flex flex-column">
+              <h4 class="free-trial-end"><b>Cancel Subscription</b></h4>
+
+              <span class="text-secondary mt-2">Your Subscription will end immediately</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 mb-2">
+          <button type="button" class="btn btn-white close-button px-4 py-2 mr-2 border border-danger text-danger"
+            data-dismiss="modal">
+            <img src="assets/img/cancelicon.svg" style="width: 1rem" class="mr-1 mb-1" />
+            Cancel
+          </button>
+
+          <button type="button"
+            class="btn upgrade-now-btn d-flex align-items-center px-4 py-2 border border-success text-success"
+            data-dismiss="modal" (click)="cancelSubscriptionPlan()">
+            <span>
+              <img class="verified-eamail mr-2 mb-1" src="assets/img/signinCheck.svg" />
+              Confirm</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- **** Upgrade Subscription modal **** -->
+  <div class="modal fade" id="upgradeSubscription" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content px-3">
+        <div class="modal-body py-4">
+          <div class="d-flex align-items-center py-2">
+            <div class="d-flex flex-column">
+              <h4 class="free-trial-end"><b>Upgrade Subscription</b></h4>
+
+              <span class="text-secondary mt-2">Do you want to upgrade sozo plan?</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 mb-2">
+          <button type="button" class="btn btn-white close-button px-4 py-2 mr-2 border border-danger text-danger"
+            data-dismiss="modal">
+            <img src="assets/img/cancelicon.svg" style="width: 1rem" class="mr-1 mb-1" />
+            Cancel
+          </button>
+
+          <button type="button"
+            class="btn upgrade-now-btn d-flex align-items-center px-4 py-2 border border-success text-success"
+            data-dismiss="modal" (click)="stripePlansCheckout(userPlanIdForModal, true)">
+            <span>
+              <img class="verified-eamail mr-2 mb-1" src="assets/img/signinCheck.svg" />
+              Upgrade Plan</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- **** Upgraded Subscription modal **** -->
+  <div class="modal fade" id="upgradeSubscriptionSuccessfull" data-backdrop="static" data-keyboard="false"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content px-3">
+        <div class="modal-body py-4">
+          <div class="d-flex align-items-center py-2">
+            <div class="d-flex flex-column">
+              <h4 class="free-trial-end">
+                <b>Upgrade Subscription Successfully</b>
+              </h4>
+
+              <span class="text-secondary mt-2">
+                You have upgraded to the
+                {{ userData?.order?.current_plan.name }} plan of Sozo.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 mb-2">
+          <button type="button" class="btn btn-white px-4 py-2 mr-2 border border-success text-success"
+            data-dismiss="modal">
+            <img src="assets/img/signinCheck.svg" style="width: 1rem" class="mr-1 mb-1" />
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,291 @@
+<div style="background-color: #f3f8f1; min-height: 100vh">
+  <div class="container-fluid">
+    <div class="row border-bottom">
+      <div
+        class="col-12 d-flex justify-content-between py-3 px-5"
+        style="
+          background-color: #183121;
+          padding-bottom: 3rem !important;
+          margin-bottom: -2rem;
+        "
+      >
+        <img src="assets/img/sozoMainLogo.svg" class="sozo-icon" />
+        <button type="button" class="btn btn-outline-success text-white">
+          UPGRADE NOW
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        class="col-12"
+        style="
+          border-top-right-radius: 2rem;
+          border-top-left-radius: 2rem;
+          background-color: #f3f8f1;
+        "
+      >
+        <div class="sozo-paragraph">
+          <!--- remove my-4 -->
+          <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex" routerLink="/login">
+              <img
+                src="assets/img/leftArrowBtn.svg"
+                alt="leftArrowBtn"
+                class=""
+                style="
+                  margin-left: -40rem;
+                  width: 3rem;
+                  height: 3rem;
+                  cursor: pointer;
+                "
+              />
+            </div>
+            <div
+              class="d-flex mr-3 sozo-paragraph-subtitle justify-content-center"
+              style="font-size: 2rem; font-family: Playfair Display"
+            >
+              <b>Welcome to </b>&nbsp;
+              <span style="color: #71d154; font-weight: 500"> SOZO </span>
+            </div>
+          </div>
+          <div
+            class="square-pattern-block"
+            style="text-align: center; margin: auto; padding-top: 0.5rem"
+          >
+            <div style="font-family: Nunito Sans">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              harum molestiae possimus modi explicabo aut incidunt facilis
+              dignissimos repellendus, iure architecto obcaecati.
+            </div>
+            <div>
+              <img
+                src="assets/img/square-pattern-icon.svg"
+                alt="square-pattern-icon"
+                class="square-pattern-icon ml-3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section
+      class="login-bg-img"
+      style="background-image: url('assets/img/sozoBackground.svg')"
+    >
+      <div class="row">
+        <div class="col-sm-12">
+          <!--removed col-md-6-->
+          <div class="row">
+            <div class="col-4 pencilIcon">
+              <div
+                class="pencil-icon row"
+                style="background-image: url('assets/img/sozoDrawing.svg')"
+              ></div>
+            </div>
+
+            <!-- <div class="col-8">
+            <img src="assets/img/Artwork.svg" class="sozosignin-artwork" />
+          </div> -->
+          </div>
+        </div>
+
+        <div class="col-sm-12 d-flex justify-content-center sign-block">
+          <!--removed col-md-6-->
+          <div class="card signin-container border-0">
+            <div class="card-body signin-container-bogttdy">
+              <h4
+                class="card-title font-weight-bold mb-4"
+                style="font-size: 2rem; font-family: Playfair Display"
+              >
+                Sign Up
+              </h4>
+
+              <form
+                #authForm="ngForm"
+                (ngSubmit)="authForm.valid && onSubmit(authForm)"
+              >
+                <div class="form-row no-gutters">
+                  <div class="col-12 form-group mb-3 d-flex">
+                    <img src="assets/img/userProfile.svg" class="input-icon" />
+
+                    <input
+                      placeholder="Full Name"
+                      type="text"
+                      class="form-control input-bg"
+                      name="firstname"
+                      id="firstname"
+                      (input)="fullNameValidation($event.target.value)"
+                      #fullNameField="ngModel"
+                      [(ngModel)]="signupData.firstname"
+                      autocomplete="off"
+                      required
+                    />
+
+                    <img
+                      class="verify-fullname"
+                      src="assets/img/signinCheck.svg"
+                      style="margin-left: -2.5rem"
+                      [style.display]="fullNameFlag ? 'block' : 'none'"
+                    />
+                  </div>
+
+                  <div
+                    *ngIf="
+                      fullNameField.invalid &&
+                      (authForm.submitted ||
+                        fullNameField.touched ||
+                        fullNameField.dirty)
+                    "
+                    class="mt-0 mb-2 invalid-feedback d-block"
+                  >
+                    Full name is required.
+                  </div>
+                </div>
+
+                <div class="form-row no-gutters">
+                  <div class="col-12 form-group mb-3 d-flex">
+                    <img
+                      class="input-icon"
+                      src="assets/img/messageSignup.svg"
+                      alt=""
+                    />
+
+                    <input
+                      type="email"
+                      class="form-control input-bg"
+                      id="email"
+                      [(ngModel)]="signupData.email"
+                      #emailField="ngModel"
+                      name="email"
+                      [pattern]="pattern.email"
+                      (input)="focusOutFunction($event.target.value)"
+                      placeholder="Email Address"
+                      autocomplete="off"
+                      required
+                    />
+
+                    <img
+                      class="verify-fullname"
+                      src="assets/img/signinCheck.svg"
+                      style="margin-left: -2.5rem"
+                      [style.display]="emailFlag ? 'block' : 'none'"
+                    />
+                  </div>
+
+                  <div
+                    *ngIf="
+                      emailField.invalid &&
+                      (authForm.submitted ||
+                        emailField.touched ||
+                        emailField.dirty)
+                    "
+                  >
+                    <div
+                      *ngIf="emailField.errors.required"
+                      class="invalid-feedback d-flex mt-0 mb-3"
+                    >
+                      Email address is required.
+                    </div>
+
+                    <div
+                      *ngIf="emailField.errors.pattern"
+                      class="invalid-feedback d-flex mt-0 mb-3"
+                    >
+                      Invalid email address.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group no-gutters">
+                  <div class="col-12 form-group mb-5 d-flex">
+                    <img
+                      src="assets/img/passwordSignup.svg"
+                      class="input-icon"
+                    />
+
+                    <input
+                      type="password"
+                      class="form-control input-bg"
+                      id="password"
+                      [(ngModel)]="signupData.password"
+                      #passwordField="ngModel"
+                      name="password"
+                      [pattern]="pattern.alphanumeric"
+                      placeholder="Password"
+                      #passwordfield
+                      required
+                    />
+                  </div>
+
+                  <div
+                    *ngIf="
+                      authForm.submitted ||
+                      passwordField.touched ||
+                      passwordField.dirty
+                    "
+                  >
+                    <div
+                      *ngIf="passwordField.invalid"
+                      class="invalid-feedback d-block"
+                    >
+                      <label>Password is required</label>
+                    </div>
+
+                    <div
+                      *ngIf="signupData.password < 8"
+                      class="invalid-feedback d-block"
+                    >
+                      <label>Password should be at least 8 characters.</label>
+                    </div>
+
+                    <div
+                      *ngIf="
+                        passwordField.errors && passwordField.errors.pattern
+                      "
+                      class="invalid-feedback d-block"
+                    >
+                      <div>
+                        <label
+                          >Must contain at least 1 Uppercase and
+                          Lowercase.</label
+                        >
+                      </div>
+
+                      <div>
+                        <label>Must contain at least 1 Number.</label>
+                      </div>
+
+                      <div>
+                        <label
+                          >Must contain at least 1 Special Character.</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mt-5">
+                  <button type="submit" class="btn btn-block">Sign up</button>
+                </div>
+
+                <div>
+                  <p class="mt-4 account-title">
+                    Already have an account?
+
+                    <span
+                      class="create-title"
+                      (click)="signinNewAccountNavigation()"
+                      >Sign In</span
+                    >
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

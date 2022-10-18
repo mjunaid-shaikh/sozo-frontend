@@ -1,0 +1,135 @@
+<div id="loader">
+  <div class="loader loader1"></div>
+  <div class="loader loader2"></div>
+  <div class="loader loader3"></div>
+  <div class="loader loader4"></div>
+  <div class="loader loader5"></div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 px-4 dashboard">
+      <div class="page-title">
+        <h3 class="user-profilebold">User Profile</h3>
+        <!-- <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text
+        </p> -->
+      </div>
+      <div class="media align-items-center">
+        <a class="mr-25">
+          <!-- <img
+            src="{{ selectedProfileImage }}"
+            id="account-upload-img"
+            class="rounded-circle  border-success border"
+            alt="profile image"
+            height="80"
+            width="80"
+          /> -->
+          <img class="profile-image-size rounded-circle border-success border" [src]="
+              selectedProfileImage
+                ? selectedProfileImage
+                : 'assets/img/user.svg'
+            " style="object-fit: cover" alt="user" />
+          <!-- <div
+          [style.background-image]="'url(' + selectedProfileImage + ')'"
+          class="profile-image-size rounded-circle  border-success border"
+        ></div> -->
+        </a>
+        <!-- upload button -->
+        <div class="choose_file ml-3 mb-2">
+          <input type="file" class="d-none" id="inputFile" accept="image/png,image/jpeg,image/jpg"
+            (change)="onSelectFile($event)" #fileUpload />
+
+          <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-sm add-photos" (click)="fileUpload.click()">
+              <img src="assets/img/Group 18616.svg" height="10" width="10" />
+              <label class="ml-2 mb-0"> Add Photo </label>
+            </button>
+          </div>
+        </div>
+        <!-- <div class="choose_file ml-3">
+          <button type="button" class="btn btn-sm add-photos" (click)="fileUpload.click()">  
+            <img src="assets/img/Group 18616.svg" height="10" width="10" />
+            <label
+            class="ml-2 mb-0" >
+            Add Photo
+            </label>
+          </button>
+          <input name="img" class="add-img-input" type="file" accept="image/*" #fileUpload (change)="onSelectFile($event)"/>
+        
+      </div> -->
+        <!--/ upload  button -->
+      </div>
+      <form class="validate-form mt-5" novalidate="novalidate" #editProfile="ngForm" (ngSubmit)="saveChangedDetail()">
+        <div class="row">
+          <div class="col-12 col-sm-10 col-lg-7 col-xl-7 row">
+            <div class="col-12 col-sm-5">
+              <div class="form-group">
+                <label for="account-username">First Name</label>
+                <input type="text" class="form-control" id="account-username" name="firstName" [(ngModel)]="firstName"
+                  #FirstName="ngModel" aria-invalid="false" (keydown)="changeFirstName()" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-5">
+              <div class="form-group">
+                <label for="account-name">Last Name</label>
+                <input type="text" class="form-control" id="account-name" name="lastName" [(ngModel)]="lastName"
+                  #FirstName="ngModel" (keydown)="changeLastName()" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-10">
+              <div class="form-group">
+                <label for="account-e-mail">Email Address</label>
+                <input type="email" class="form-control" id="account-e-mail" name="email" [attr.placeholder]="email"
+                  value="" disabled="disabled" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-10">
+              <div class="form-group bg-theme p-3 reset-email">
+                <h4 class="bold-title mb-3">Change Password</h4>
+                <form #ChangePasswordForm="ngForm" (ngSubmit)="
+                    ChangePasswordForm.valid && onSubmit(ChangePasswordForm)
+                  ">
+                  <div class="d-flex align-items-end">
+                    <div class="col-lg-9 pl-0">
+                      <input type="password" class="form-control mb-2" id="currentPassword" name="currentPassword"
+                        placeholder="Current Password" [(ngModel)]="currentPassword" #currentPasswordField="ngModel"
+                        autocomplete="off" required />
+                      <input type="password" class="form-control mb-2" id="newPassword" name="newPassword"
+                        placeholder="New Password" [(ngModel)]="newPassword" #newPasswordField="ngModel"
+                        autocomplete="off" required />
+                      <input type="password" class="form-control mb-2" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirm Password" [(ngModel)]="confirmPassword" #confirmPasswordField="ngModel"
+                        autocomplete="off" required />
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn mt-2 sendprofile-button" data-toggle="modal"
+                      data-target="#changePassword" (click)="onSubmit(ChangePasswordForm)">
+                      Send
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 my-3">
+            <div class="button-wizard float-right">
+              <button type="button" class="btn mt-2 cancel-button" (click)="cancelBtn()">
+                Cancel
+              </button>
+              <button type="submit" class="btn saveprofile-changesbutton mt-2 ml-3 active" [ngStyle]="{
+                  background: enableButton
+                    ? '#62AF49 0% 0% no-repeat padding-box'
+                    : '#b6d5ab 0% 0% no-repeat padding-box'
+                }" [disabled]="!enableButton" (click)="saveChangedDetail()">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

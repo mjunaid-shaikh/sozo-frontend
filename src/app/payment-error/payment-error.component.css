@@ -1,0 +1,7 @@
+.error-bg-img {
+  height: 100vh;
+}
+.error-content {
+  box-shadow: 0px 0px 10px 10px #ccc;
+  width: 30rem;
+}

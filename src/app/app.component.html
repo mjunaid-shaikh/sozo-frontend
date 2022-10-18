@@ -1,0 +1,71 @@
+<div id="loader">
+    <div class="loader loader1"></div>
+    <div class="loader loader2"></div>
+    <div class="loader loader3"></div>
+    <div class="loader loader4"></div>
+    <div class="loader loader5"></div>
+  </div>
+
+  
+  <router-outlet></router-outlet>
+
+  <app-modal modalId="errorModal" modalSize="sm">
+      <div
+        class="d-flex flex-fill justify-content-between align-items-center"
+        header
+      >
+        <h4 class="modal-heading fw-500 mb-0">Error</h4>
+        <img
+          src="assets/img/Cancel.svg"
+          class="cross-circle"
+          data-dismiss="modal"
+          data-target="#errorModal"
+        />
+      </div>
+    
+      <div class="text-center" body>
+        <img src="assets/img/Cross.svg" class="d-block mx-auto w-25 mb-3" />
+    
+        <span id="errorModalText" class="text-danger"></span>
+      </div>
+    
+      <button
+        footer
+        type="button"
+        class="btn btn-outline-danger mx-auto"
+        data-dismiss="modal"
+        data-target="#errorModal"
+      >
+        OK
+      </button>
+    </app-modal>
+    
+    <app-modal modalId="successModal" modalSize="sm">
+      <div
+        class="d-flex flex-fill justify-content-between align-items-center"
+        header
+      >
+        <h4 class="modal-heading fw-500 mb-0">Congratulations!</h4>
+        <img
+          src="assets/img/Cancel.svg"
+          class="cross-circle"
+          data-dismiss="modal"
+          data-target="#successModal"
+        />
+      </div>
+    
+      <div class="text-center" body>
+        <img src="assets/img/dashboardSharableLink.svg" class="d-block mx-auto w-25 mb-3" />
+        <span id="successModalText"></span>
+      </div>
+    
+      <button
+        footer
+        type="button"
+        class="btn btn-outline-success mx-auto"
+        data-dismiss="modal"
+        data-target="#successModal"
+      >
+        Okay
+      </button>
+    </app-modal>

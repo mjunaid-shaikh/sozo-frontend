@@ -1,0 +1,135 @@
+.add-photos {
+  background: #62AF49 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0.44rem 0.44rem #137ef91a;
+  border-radius: 1.47rem;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 14px 7px 12px;
+}
+.choose_file {
+  margin-top: 2px;
+  cursor: pointer;
+}
+.choose_file .add-img-input{
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  height: 100%;
+  cursor: pointer;
+}
+.trunctxt {
+  letter-spacing: 0px;
+  color: #cfd9db;
+  opacity: 1;
+}
+.page-title h3 {
+  color: #202225;
+}
+.page-title p {
+  color: #202225;
+}
+.bold-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0px;
+  color: #202225;
+}
+.reset-email .btn {
+  background: #fdfdfd 0% 0% no-repeat padding-box;
+  border: 0.088rem solid #62AF49;
+  border-radius: 0.44rem;
+  color: #62AF49;
+}
+.trunctxtdelete {
+  letter-spacing: 0px;
+  color: #cfd9db;
+}
+#account-upload-img {
+  width: 5rem;
+  height: 5rem;
+}
+.bg-theme {
+  background-color: #f9f9f9;
+}
+.user-profilebold {
+  font-weight: bold;
+}
+.setting-butn button {
+  font-size: 0.89rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  padding: 0.75rem 1.78rem;
+}
+.setting-butn img {
+  margin-bottom: 2px;
+  width: 1.06rem;
+}
+.cancel-button {
+  border: 1px solid rgb(184 184 184);
+  font-weight: bold;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 10px #137ef91a;
+  border-radius: 10px;
+  opacity: 1;
+  padding: 9px 55px 9px 55px;
+}
+.user-deletebutton {
+  border: 2px solid #62AF49;
+  color: #62AF49;
+  border-radius: 10px;
+}
+.account-upload {
+  border-radius: 33px;
+  background-color: rgb(19 126 249);
+  padding: 7px 19px 7px 15px;
+}
+.account-upload span {
+  font-weight: bold;
+  font-size: 10px;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #62af49;
+  background-color: #62af49;
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0px 0px 0px 0.2rem rgba(186, 113, 36, 0.25);
+}
+.saveprofile-changesbutton {
+  border: none;
+  font-weight: bold;
+  background: #62AF49 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 10px #137ef91a;
+  border-radius: 10px;
+  color: #fff;
+  opacity: 1;
+  padding: 9px 26px 9px 26px;
+}
+.sendprofile-button {
+  padding: 5px 29px 7px 29px;
+  font-weight: bold;
+
+  border: 2px solid rgb(19 126 249);
+  border-radius: 10px;
+  opacity: 1;
+}
+/* .add-photos {
+  border-radius: 31px;
+  font-size: 14px;
+  padding: 5px 14px 7px 12px;
+} */
+.language-settingdropdown {
+  outline: none;
+  border: 2px solid rgb(212 229 249);
+  border-radius: 10px;
+  font-weight: bold;
+  color: rgb(32 34 37);
+  padding: 7px 45px 8px 6px;
+}
+.profile-image-size {
+  width: 7.7rem;
+  height: 7.7rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+}

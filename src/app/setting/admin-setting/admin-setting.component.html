@@ -1,0 +1,482 @@
+<!-- <div type="button" class="btn">
+  <img class="backBtn" src="/assets/img/backIcon.svg" alt="" />
+</div> -->
+<h3 class="heading">Admin Settings</h3>
+<span>You are currently on a Premium subscription of SOZO.</span>
+<hr />
+<h4>Users</h4>
+<div class="d-flex">
+  <form>
+    <input
+      class="searchBox border rounded-pill border-secondary mr-2 d-inline-flex"
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Search User to Add"
+      [(ngModel)]="filterTerm"
+      autocomplete="off"
+    />
+    <button
+      type="button"
+      class="btn btnBackground font-weight-bold rounded-pill"
+      data-toggle="modal"
+      data-target="#userModal"
+      (click)="onClickAddBtn()"
+    >
+      <img class="plusIcon" src="/assets/img/plusicon.svg" alt="plusIcon" />
+      Add a User
+    </button>
+  </form>
+</div>
+
+<!-- ADD USER LIST  -->
+
+<div class="mainContainer rounded border fixedContent mt-3">
+  <div
+    class="d-flex userContainer rounded justify-content-between"
+    *ngFor="let item of getMembersData | filter: filterTerm"
+  >
+    <div class="userData d-flex">
+      <div class="">
+        <img
+          class="profileImg rounded-circle"
+          src="/assets/img/user.svg"
+          alt="profilePic"
+        />
+      </div>
+      <div class="flex-column">
+        <div class="font-weight-bold">
+          {{ item.first_name }} {{ item.last_name }}
+        </div>
+        <div class="joinedDate">{{ item.Date ? "" : "" }}</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button
+        class="editBtn rounded-pill btn text-success font-weight-bold"
+        data-toggle="modal"
+        data-target="#userModal"
+        (click)="onClickEditButton(); onEdit(item)"
+      >
+        <img class="editIcon" src="/assets/img/edit.svg" alt="editIcon" />
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <!-- <div class="d-flex userContainer rounded justify-content-between">
+    <div class="userData d-flex">
+      <div class="">
+        <img class="profileImg" src="/assets/img/avatar-s-20.jpg" alt="profilePic" />
+      </div>
+      <div class="flex-column">
+        <div class="font-weight-bold">Danielle Holmes</div>
+        <div class="joinedDate">Joined : date</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button
+        class="editBtn rounded-pill btn text-success font-weight-bold"
+        data-toggle="modal"
+        data-target="#userModal"
+        (click)="onClickEditButton()"
+      >
+        <img class="editIcon" src="/assets/img/edit.svg" alt="editIcon" />
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex userContainer rounded justify-content-between">
+    <div class="userData d-flex">
+      <div class="">
+        <img class="profileImg" src="/assets/img/avatar-s-20.jpg" alt="profilePic" />
+      </div>
+      <div class="flex-column">
+        <div class="font-weight-bold">Danielle Holmes</div>
+        <div class="joinedDate">Joined : date</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button
+        class="editBtn rounded-pill btn text-success font-weight-bold"
+        data-toggle="modal"
+        data-target="#userModal"
+        (click)="onClickEditButton()"
+      >
+        <img class="editIcon" src="/assets/img/edit.svg" alt="editIcon" />
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex userContainer rounded justify-content-between">
+    <div class="userData d-flex">
+      <div class="">
+        <img class="profileImg" src="/assets/img/avatar-s-20.jpg" alt="profilePic" />
+      </div>
+      <div class="flex-column">
+        <div class="font-weight-bold">Danielle Holmes</div>
+        <div class="joinedDate">Joined : date</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button
+        class="editBtn rounded-pill btn text-success font-weight-bold"
+        data-toggle="modal"
+        data-target="#userModal"
+        (click)="onClickEditButton()"
+      >
+        <img class="editIcon" src="/assets/img/edit.svg" alt="editIcon" />
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex userContainer rounded justify-content-between">
+    <div class="userData d-flex">
+      <div class="">
+        <img class="profileImg" src="/assets/img/avatar-s-20.jpg" alt="profilePic" />
+      </div>
+      <div class="flex-column">
+        <div class="font-weight-bold">Danielle Holmes</div>
+        <div class="joinedDate">Joined : date</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button
+        class="editBtn rounded-pill btn text-success font-weight-bold"
+        data-toggle="modal"
+        data-target="#userModal"
+        (click)="onClickEditButton()"
+      >
+        <img class="editIcon" src="/assets/img/edit.svg" alt="editIcon" />
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex userContainer rounded justify-content-between">
+    <div class="userData d-flex">
+      <div class="">
+        <img class="profileImg" src="/assets/img/avatar-s-20.jpg" alt="profilePic" />
+      </div>
+      <div class="flex-column">
+        <div class="font-weight-bold">Danielle Holmes</div>
+        <div class="joinedDate">Joined : date</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button
+        class="editBtn rounded-pill btn text-success font-weight-bold"
+        data-toggle="modal"
+        data-target="#userModal"
+        (click)="onClickEditButton()"
+      >
+        <img class="editIcon" src="/assets/img/edit.svg" alt="editIcon" />
+        Edit
+      </button>
+    </div>
+  </div> -->
+</div>
+
+<!-- ADMIN SETTING APPLY CHANGES AND CANCEL BUTTON D-NONE FROM CSS -->
+
+<div class="footerBtn d-flex flex-row-reverse flex-wrap my-3">
+  <button
+    type="button"
+    class="btn btnShadow font-weight-bold btnBackground rounded"
+  >
+    Apply Changes
+  </button>
+  <button type="button" class="btn cancelBtn mr-3 rounded">Cancel</button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="userModal1"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content addUsermodalPadding">
+      <div class="modal-header border-0">
+        <h5 class="modal-title-admin addUserHeader" id="exampleModalLabel"></h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="name" class="addUserLabelName mb-0">First name</label>
+              <input
+                type="text"
+                class="form-control border shadow-none addUserInput"
+                id="firstName"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="name" class="addUserLabelName mb-0">Last name</label>
+              <input
+                type="text"
+                class="form-control border shadow-none addUserInput"
+                id="lastName"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="phoneNumber" class="addUserLabelName mb-0"
+                >Phone Number</label
+              >
+              <input
+                type="tel"
+                class="form-control border shadow-none addUserInput"
+                id="phoneNumber"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="emailAddress" class="addUserLabelName mb-0"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                class="form-control border shadow-none addUserInput"
+                id="emailAddress"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <!-- <div
+            class="custom-control custom-switch switchBtn"
+            *ngIf="modalCustomSwitchBtn"
+          >
+            <input
+              type="checkbox"
+              class="custom-control-input customSwitchBtn"
+              id="customSwitch1"
+            />
+            <label
+              class="custom-control-label editUserCheckbox font-weight-bold"
+              for="customSwitch1"
+              >Deactivate User</label
+            >
+          </div> -->
+        </form>
+      </div>
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn editUserBtn border editUserCancelBtn"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-success editUserBtn editUserAddBtn"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL FOR ADD A USER -->
+<div
+  class="modal fade"
+  id="userModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content addMemberModelMargin modelBox">
+      <div class="modal-header addTeamMembermodalMargin border-0">
+        <h5
+          class="modal-title border-0 addTeamModelHeader"
+          id="exampleModalLabel"
+        >
+          Add a User
+        </h5>
+        <!-- <button type="button" class="close" #closeButton  data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <form [formGroup]="addNewMember" (ngSubmit)="addMemberSubmit()">
+        <div class="modal-body addTeamMembermodalMargin">
+          <div class="form-row">
+            <div class="form-group col-6 col-sm-6 col-md-6">
+              <label
+                for="firstName4"
+                class="addMemberLabelName requiredInput mb-0"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control border addMemberInput shadow-none"
+                id="firstName4"
+                autocomplete="off"
+                required
+                formControlName="first_name"
+                [ngClass]="{
+                  invalidFiled:
+                    InvalidForm ||
+                    (addNewMember.controls.first_name.invalid &&
+                      addNewMember.controls.first_name.touched)
+                }"
+              />
+              <span
+                *ngIf="
+                  InvalidForm ||
+                  (addNewMember.controls.first_name.invalid &&
+                    addNewMember.controls.first_name.touched)
+                "
+                class="text-danger errorAlert"
+                >First name required</span
+              >
+            </div>
+            <div class="form-group col-6 col-sm-6 col-md-6">
+              <label
+                for="lastName4"
+                class="addMemberLabelName requiredInput mb-0"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                class="form-control border addMemberInput shadow-none"
+                id="lastName4"
+                required
+                formControlName="last_name"
+                autocomplete="off"
+                [ngClass]="{
+                  invalidFiled:
+                    InvalidForm ||
+                    (addNewMember.controls.last_name.invalid &&
+                      addNewMember.controls.last_name.touched)
+                }"
+              />
+              <span
+                *ngIf="
+                  InvalidForm ||
+                  (addNewMember.controls.last_name.invalid &&
+                    addNewMember.controls.last_name.touched)
+                "
+                class="text-danger errorAlert"
+                >Last name required</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPhoneNo" class="addMemberLabelName mb-0"
+              >Phone No</label
+            >
+            <input
+              type="number"
+              class="form-control inputonlyNumber border addMemberInput shadow-none"
+              id="inputPhoneNo"
+              formControlName="phone"
+              autocomplete="off"
+            />
+            <!-- <span class="text-danger errorAlert">Enter correct phone number</span> -->
+          </div>
+          <div class="form-group">
+            <label
+              for="emailAddress4"
+              class="addMemberLabelName requiredInput mb-0"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              class="form-control border addMemberInput shadow-none"
+              id="emailAddress4"
+              placeholder=""
+              required
+              formControlName="email"
+              autocomplete="off"
+              [ngClass]="{
+                invalidFiled:
+                  InvalidForm ||
+                  (addNewMember.controls.email.invalid &&
+                    addNewMember.controls.email.touched)
+              }"
+            />
+            <span
+              *ngIf="
+                InvalidForm ||
+                (addNewMember.controls.email.invalid &&
+                  addNewMember.controls.email.touched &&
+                  !addNewMember.get('email').hasError('email'))
+              "
+              class="text-danger errorAlert"
+              >E-mail required</span
+            >
+            <span
+              *ngIf="addNewMember.get('email').hasError('email')"
+              class="text-danger errorAlert"
+              >Invalid email address</span
+            >
+          </div>
+
+          <!-- is admin button flag -->
+          <div class="buttonFlagContainer d-flex">
+            <div class="custom-control custom-switch switchBtn">
+              <input
+                type="checkbox"
+                class="custom-control-input customSwitchBtn"
+                id="customSwitch1"
+                formControlName="isAdmin"
+              />
+              <label
+                class="custom-control-label editUserCheckbox font-weight-bold"
+                for="customSwitch1"
+                >Admin</label
+              >
+            </div>
+            <!-- is active user flag -->
+            <div
+              class="custom-control custom-switch switchBtn isActiveUser ml-3"
+            >
+              <input
+                type="checkbox"
+                class="custom-control-input customSwitchBtn"
+                id="customSwitch2"
+                formControlName="isActive"
+              />
+              <label
+                class="custom-control-label editUserCheckbox font-weight-bold"
+                for="customSwitch2"
+                >Deactivate User</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer addMemberFooter border-0">
+          <button
+            type="button"
+            class="btn border footerCancelBtn"
+            #closeButton
+            data-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            id="closeModal"
+            class="btn modelFooterBtn font-weight-bold"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

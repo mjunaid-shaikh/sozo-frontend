@@ -1,0 +1,210 @@
+.card-subtitle {
+  font-size: 1rem;
+}
+.sozo-subtitle {
+  font-size: 0.75rem;
+}
+
+.login-with-google {
+  margin-right: 0.62rem;
+  font-size: 0.87rem;
+  height: 2.375rem;
+  width: 11.68rem;
+  font-size: 0.8rem;
+  border: 1px solid #eeeeee;
+  background-color: white;
+}
+.login-with-yahoo {
+  margin-right: 0.62rem;
+  font-size: 0.87rem;
+  height: 2.375rem;
+  width: 11.68rem;
+  font-size: 0.8rem;
+  border: 1px solid #eeeeee;
+  background-color: white;
+}
+.signin-container {
+  width: 34rem;
+  box-shadow: 0px 20px 50px #137ef90d;
+  padding: 0px 30px 7px 30px;
+  border-radius: 0.5rem;
+  margin-top: -5rem; /*CHANGED -4REM */
+}
+
+.sozo-subtitle {
+  font-size: 1rem;
+}
+.input-group-text {
+  border: none;
+  background-color: rgb(246 246 246);
+}
+.login-bg-img {
+  height: 31rem;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.user-profileicon {
+  width: 1.562rem;
+}
+.siginin-check {
+  width: 1.562rem;
+}
+.signin-checkicon {
+  margin-left: -2.5rem;
+}
+.signin-mesaage {
+  width: 1.562rem;
+}
+.sigup-password {
+  width: 1.562rem;
+}
+.upgrade-button {
+  margin-right: 3.812rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  background: transparent linear-gradient(255deg, #ffdb25 0%, #ff8c17 100%) 0%
+    0% no-repeat padding-box;
+}
+.upgrade-icon {
+  width: 1rem;
+}
+
+.create-title {
+  cursor: pointer;
+  font-weight: bold;
+  color: #62af49;
+}
+.partial-heading {
+  color: #cfd9db;
+}
+.account-title {
+  color: #7a8081;
+}
+.signin-rememberme {
+  color: rgb(81 88 89);
+  margin-top: 0.1rem;
+}
+.signin-forgot {
+  color: #62af49;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sozo-icon {
+  margin-left: 2rem;
+  width: 5rem;
+  margin-top: 0.8rem;
+}
+
+/* ++++++++++++++++++++++ */
+
+.square-pattern-block {
+  margin-top: 1rem; /* CHANGED 4.5REM*/
+  /* margin-left: 17.9rem; */
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+.square-pattern-icon {
+  width: 3rem;
+}
+
+.pencil-icon {
+  height: 9rem;
+  width: 20rem;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: -1rem;
+}
+.input-icon {
+  width: 1.5rem;
+  position: absolute;
+  margin-left: 1rem;
+  margin-top: 0.7rem;
+}
+
+.signin-container-body {
+  padding: 3rem 3.5rem 3rem 3.5rem;
+}
+
+.input-bg {
+  font-size: 0.9rem !important;
+  height: 2.8rem;
+  border: none;
+  background-color: rgb(246 246 246);
+  padding-left: 3.8rem;
+}
+
+.signup-text {
+  font-size: 0.813rem;
+  color: #cfd9db;
+  overflow: hidden;
+  font-weight: 400;
+}
+
+.signup-text > span:after {
+  background-color: #137ef90d;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.signup-text > span:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.btn-block {
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #62af49;
+  color: #fff;
+  margin-top: 4rem;
+}
+/* .signin-check{
+    margin-left: ;
+  } */
+.sozo-paragraph {
+  margin-left: 3.75rem;
+}
+.sozo-paragraph-subtitle {
+  margin-top: 1.06rem;
+}
+.google-icon {
+  padding: 0 10px 1px 1px;
+}
+.yahoo-icon {
+  padding: 0 10px 1px 1px;
+}
+.verified-eamail {
+  width: 2rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  height: 1rem;
+  width: 1rem;
+}
+.sozosignin-artwork {
+  width: 85%;
+}
+
+/* PENCIL ICON ON SIGN IN BOARD */
+.pencilIcon {
+  top: 15rem;
+}
+.container-fluid {
+  background-color: #f3f8f1;
+}

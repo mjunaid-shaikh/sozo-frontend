@@ -1,0 +1,1183 @@
+<div class="canvas-content">
+  <div class="modal fade" id="internet-connection-status-modal" data-backdrop="static" data-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="staticBackdropLabel">
+            Connection Error!!!
+          </h4>
+        </div>
+        <div class="modal-body">
+          <h5>You are currently offline! Please connect to the network.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal my board templates...  -->
+  <div class="modal fade" id="board-template-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content w-100">
+        <div class="modal-header">
+          <h5 class="modal-title">My Board Templates</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body board-modal-body p-0">
+          <div class="board-modal-wrapper" [ngClass]="{ center: !modalTemplateData }">
+            <ng-container *ngIf="modalTemplateData; then myDocs; else modalLoader">
+            </ng-container>
+
+            <ng-template #myDocs>
+              <div class="board-template-container center" *ngFor="let doc of allMyDocs">
+                <div class="board-template-body" #boardDoc (click)="boardModalDocument(boardDoc, doc)">
+                  <div class="board-body-image">
+                    <img class="board-image" [src]="doc.sozo.imgData" alt="" />
+                  </div>
+                  <div class="board-body-info py-3 pl-2">
+                    <span class="font-weight-bold">{{ doc.sozo.name }}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #modalLoader>
+              <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" (click)="selectedBoardOfModal()"
+            style="background-color: #71d154; border: none">
+            Select
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--modal default templates...  -->
+  <div class="modal fade" id="template-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content w-100">
+        <div class="modal-header">
+          <h5 class="modal-title">Popular Templates</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body board-modal-body p-0">
+          <!-- <app-templates></app-templates> -->
+
+          <div class="board-modal-wrapper" [ngClass]="{ center: !modalTemplateData }">
+            <ng-container *ngIf="modalTemplateData; then myDocs1; else modalLoader">
+            </ng-container>
+
+            <ng-template #myDocs1>
+              <div class="board-template-container center" *ngFor="let doc of templatesList">
+                <div class="board-template-body" #boardDoc (click)="boardModalDocument(boardDoc, doc)">
+                  <div class="board-body-image">
+                    <img class="board-image" [src]="doc.sozo.imgData" alt="" />
+                  </div>
+                  <div class="board-body-info py-3 pl-2">
+                    <span class="font-weight-bold">{{ doc.sozo.name }}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #modalLoader>
+              <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" (click)="selectedBoardOfModal()"
+            style="background-color: #71d154; border: none">
+            Select
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--modal seassion expired code... -->
+  <div class="modal fade" id="session-expired-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Session Expired</h4>
+        </div>
+
+        <div class="modal-body">
+          Your session is expired! Please Login Again.
+        </div>
+
+        <div class="modal-footer">
+          <button id="btnExpiredOk" (click)="sessionExpiredRedirect()" type="button" class="btn btn-primary"
+            data-dismiss="modal" style="
+              padding: 6px 12px;
+              margin-bottom: 0;
+              font-size: 14px;
+              font-weight: normal;
+              border: 1px solid transparent;
+              border-radius: 4px;
+              background-color: #428bca;
+              color: #fff;
+            ">
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div [id]="pointer.uniqueId" class="colab-user-pointer" *ngFor="let pointer of userPointers"
+    [ngStyle]="{ top: pointer.top, left: pointer.left }">
+    <img src="assets/img/cursor.svg" alt="" />
+    <div class="pointer-name center" [ngStyle]="{ background: pointer.color }">
+      {{ pointer.name }}
+    </div>
+  </div>
+  <canvas id="c"></canvas>
+</div>
+<div class="canvas-search-items">
+  <div class="total-found-object center">
+    <span><span class="current-text">1</span> of
+      <span class="total-text">2</span></span>
+  </div>
+  <div class="switching-found-text">
+    <div class="switch-to-previous center" (click)="previousSearchedText()">
+      <img src="assets/img/filtered-text-switch.svg" alt="" />
+    </div>
+    <div class="switch-to-next center" (click)="nextSearchedText()">
+      <img src="assets/img/filtered-text-switch.svg" alt="" />
+    </div>
+  </div>
+</div>
+<!-- user call response modal start  -->
+<div class="modal fade" id="user-call-response">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Video Calling Alert!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>There is a video call going on in this room!</h6>
+        <br />
+        <h6>Click the Join button to start!</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert-video-call">
+  <div class="row no-gutters h-100">
+    <div class="col-md-11 center h-100">
+      <h6 class="m-0 p-0">
+        There is a video call going on in this room. Click the Join button to
+        start!
+      </h6>
+    </div>
+    <div class="col-md-1 center h-100" role="button" (click)="closeVideoCallAlert()">
+      <span class="mb-1" aria-hidden="true">&times;</span>
+    </div>
+  </div>
+</div>
+<div class="useracess-status" [ngStyle]="{ display: userAccess !== 'readonly' ? 'none' : 'flex' }">
+  <p class="p-0 m-0">You have View Permission Only!</p>
+</div>
+
+<!-- video call loader start -->
+<div class="video-call-loader">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<!-- video call loader End -->
+
+<!-- Live Conference Section -->
+<div class="row no-gutters live-conference-main">
+  <div *ngIf="isStartLive" class="col-3 live-conference-mute-section d-flex justify-content-around align-items-center"
+    role="button" (click)="startLive()">
+    <div class="live-conference-mute-section-img w-100 h-100 center">
+      <img src="assets/img/calladd.svg" alt="" />
+    </div>
+    <p class="p-0 m-0 h-100 center mr-3 text-white">Start</p>
+  </div>
+  <div *ngIf="isEndLive" class="col-3 live-conference-mute-section d-flex justify-content-around align-items-center"
+    style="background: #ff5055" role="button" (click)="endLive()">
+    <div class="live-conference-mute-section-img w-100 h-100 center">
+      <img src="assets/img/call_reject.svg" alt="" />
+    </div>
+    <p class="p-0 m-0 h-100 center mr-3 text-white">End</p>
+  </div>
+  <div *ngIf="isJoinLive" class="col-3 live-conference-mute-section d-flex justify-content-around align-items-center"
+    style="background: #ffd150" role="button" (click)="joinLive()">
+    <div class="live-conference-mute-section-img w-100 h-100 center">
+      <img src="assets/img/call_attend.svg" alt="" />
+    </div>
+    <p class="p-0 m-0 h-100 center mr-3 text-white">Join</p>
+  </div>
+
+  <div class="col-9 live-conference-control-section center justify-content-around">
+    <p *ngIf="isStartLive" class="p-0 m-0 h-100 center text-white call-helper">
+      Click to Start the Meeting!
+    </p>
+    <p *ngIf="isEndLive" class="p-0 m-0 h-100 center text-white call-helper">
+      You are in the Live Conference
+    </p>
+    <p *ngIf="isJoinLive" class="p-0 m-0 h-100 center text-white call-helper">
+      Live Conference is Going On..
+    </p>
+
+    <div class="h-100 center" role="button" data-toggle="collapse" data-target="#conferenceControl" id="">
+      <img src="assets/img/toolbarHideIconMinimiser.svg" style="width: 1.3rem" alt="" />
+    </div>
+
+    <!-- VIDEO CONTROLLER TOOLBAR -->
+
+    <div class="collapse" id="conferenceControl" draggable="true">
+      <div *ngIf="isEndLive" class="conference-features no-gutters position-relative" id="conference-features">
+        <div class="px-2 audio-section center my-2" id="audio">
+          <div class="audio-section-content center flex-column" data-toggle="dropdown">
+            <div class="participants-toggle"></div>
+            <div class="img-wrapper center h-75" (click)="selfAudioController()" role="button">
+              <img src="assets/img/microphone-black-shape.svg" class="mute-control-image" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1" style="color: '#7A8081'">Mute</p>
+          </div>
+          <div class="dropdown-menu participants-audioControl m-0 p-0 shadow">
+            <div class="dropdown-content d-flex flex-column my-1">
+              <div class="col-9~ d-flex align-items-center border-bottom py-1" (click)="selfAudioController()">
+                <img src="assets/img/selfMuteLightIcon.svg" alt="" class="" style="margin-left: 0.7rem" />
+                <span class="p-0 text-bold user-name" style="
+                    margin-left: 0.5rem;
+                    font-family: Nunito Sans;
+                    font-weight: 600;
+                    color: #202225;
+                  ">Mute</span>
+              </div>
+              <div class="col-9~ d-flex align-items-center py-1" (click)="muteAllAudioParticipant()" *ngIf="isAdminUserStatus">
+                <img src="assets/img/muteAllLightIcon.svg" alt="" class="" style="margin-left: 0.7rem" />
+                <span class="p-0 text-bold user-name" style="
+                    margin-left: 0.5rem;
+                    font-family: Nunito Sans;
+                    font-weight: 600;
+                    color: #202225;
+                  ">Mute All</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-2 video-section center my-2" id="stopVideo">
+          <div class="video-section-content center flex-column" data-toggle="dropdown" role="button">
+            <div class="participants-toggle"></div>
+            <div class="img-wrapper center h-75" (click)="selfVideoController()">
+              <img src="assets/img/video-camera.svg" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1" style="color: '#7A8081'">Stop Video</p>
+          </div>
+
+          <div class="dropdown-menu participants-videoControl m-0 p-0 shadow">
+            <div class="dropdown-content d-flex flex-column my-1">
+              <div class="col-9~ d-flex align-items-center border-bottom py-1" (click)="selfVideoController()">
+                <img src="assets/img/selfMuteLightIcon.svg" alt="" class="" style="margin-left: 0.7rem" />
+                <span class="p-0 text-bold user-name" style="
+                    margin-left: 0.5rem;
+                    font-family: Nunito Sans;
+                    font-weight: 600;
+                    color: #202225;
+                  ">Stop</span>
+              </div>
+              <div class="col-9~ d-flex align-items-center py-1" (click)="muteAllVideoParticipant()" *ngIf="isOwner">
+                <img src="assets/img/muteAllLightIcon.svg" alt="" class="" style="margin-left: 0.7rem" />
+                <span class="p-0 text-bold user-name" style="
+                    margin-left: 0.5rem;
+                    font-family: Nunito Sans;
+                    font-weight: 600;
+                    color: #202225;
+                  ">Stop All</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-2 participants-section center my-2" id="participants">
+          <div class="participants-section-content center flex-column" data-toggle="dropdown" role="button">
+            <div class="participants-toggle"></div>
+            <div class="img-wrapper center h-75">
+              <img src="assets/img/participants.svg" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1" style="color: '#7A8081'">Participants</p>
+            <span class="participants-count">{{
+              userDisplayNames.length
+              }}</span>
+          </div>
+          <div class="dropdown-menu participants-dropdown m-0 p-0">
+            <div class="dropdown-content d-flex flex-column my-1">
+              <div *ngFor="let user of userDisplayNames" class="dropdown-content-data row no-gutters">
+                <div class="col-3 center h-100 w-100">
+                  <div class="content-image center" style="background: #57d45b">
+                    <div class="content-image-initial">
+                      {{ user.initial }}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-9~ d-flex align-items-center">
+                  <p class="m-0 p-0 text-bold user-name">{{ user.name }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-2 cameraView-section center my-2" id="cameraView">
+          <div class="cameraView-section-content center flex-column" data-toggle="dropdown">
+            <div class="participants-toggle"></div>
+            <div class="img-wrapper center h-75" role="button">
+              <img src="assets/img/cameraViewDeactiveButton.svg" class="mute-control-image" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1" style="color: '#7A8081'">Came View</p>
+          </div>
+          <div class="dropdown-menu participants-dropdown m-0 p-0">
+            <div class="dropdown-content d-flex flex-column my-1">
+              <div class="dropdown-content-data row no-gutters">
+                <div class="center h-100 w-100">
+                  <div class="content-image center">
+                    <div class="content-image-initial mx-2 rid_veigw_icon" (click)="gridViewChange('temp1')"
+                      style="cursor: pointer">
+                      <img src="assets/img/defaultVideoTemplate.svg" alt="templateIcon" />
+                    </div>
+                    <div class="content-image-initial mx-2 grid_veiw_icon" (click)="gridViewChange('temp2')">
+                      <img src="assets/img/videoFourBoxTemplate.svg" alt="templateIcon" />
+                    </div>
+                    <div class="content-image-initial mx-2 grid_veiw_icon" (click)="gridViewChange('temp3')">
+                      <img src="assets/img/largeVideoTemplate.svg" alt="" />
+                    </div>
+                    <div class="content-image-initial mx-2 cursor-pointer" (click)="gridViewChange('temp4')">
+                      <img *ngIf="showFullScreenVideo" src="assets/img/capture_icon.svg" alt="templateIcon" id="fullVidScreenPos"
+                        (click)="fullVidScreen($event)" />
+                      <img *ngIf="showCloseScreenVideo" src="assets/img/minimiz.svg" alt="templateIcon"
+                        (click)="closeVidScreen()" />
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="col-9~ d-flex align-items-center">
+                  <p class="m-0 p-0 text-bold user-name">{{ user.name }}</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-2 screenShare-section center my-2" id="screenShare">
+          <!-- share screen -->
+          <div class="screenShare-section-content center flex-column"
+            (click)="isShareScreenOn?warning('Someone Already sharing screen'):(!isScreenShare?shareScreen():'')">
+            <div class="img-wrapper center h-75" role="button">
+              <img src="assets/img/screenShareDeactiveButton.svg" class="screenShare-image" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1" style="color: '#7A8081'">Screen Share</p>
+          </div>
+
+          <!-- stop sharing -->
+          <!-- <div class="screenShare-section-content center flex-column" *ngIf="isScreenShare" (click)="stopScreenShare()">
+            <div class="img-wrapper center h-75" role="button">
+              <img src="assets/img/screenShareDeactiveButton.svg" class="screenShare-image" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1" style="color: '#7A8081'">Stop Share</p>
+          </div> -->
+        </div>
+
+
+        <div class="px-2 closeVideo-section center" *ngIf="isScreenShare" id="stopSharingScreen">
+          <div class="closeVideo-section-content center flex-column h-75" id="shareScreenBtn" (click)="stopScreenShare()">
+            <div class="img-wrapper center h-75" role="button">
+              <img src="assets/img/stopVideoActiveButton.svg" class="stopVideo-control-image" alt="" />
+            </div>
+            <p class="p-0 m-0 mb-1">Stop Share</p>
+          </div>
+        </div>
+        <div class="px-2 closeVideo-section center" *ngIf="!isScreenShare" style="background-color: transparent; color: #7A8081;" id="stopSharingScreen">
+          <div class="closeVideo-section-content center flex-column h-75" >
+            <div class="img-wrapper center h-75" role="button">
+              <img src="assets/img/stopVideoDeActiveButton.svg" class="stopVideo-control-image" alt="" />
+            </div>
+            <p class="p-0  m-0 mb-1">Stop Share</p>
+          </div>
+        </div>
+        <div class="px-2 toolbarHideIcon-section center my-2 position-absolute" id="toolbarHideButton">
+          <div class="toolbarHideIcon-section-content center flex-column">
+            <div class="img-wrapper center h-75" role="button">
+              <img src="assets/img/video-camera.svg" class="toolbarHideIcon-image" alt=""
+                (click)="onClickToolbarMinise()" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- video section of conference -->
+
+<div class="videocall-clients-container overflow-hidden" id="videoContainer" draggable="true">
+</div>
+
+<!-- display mute icon inside the video  -->
+<!-- <div id="disp-mute-icon" class="bg-danger">
+<img src="assets/img/white-microphone.svg" alt="">
+</div> -->
+
+<!-- share screen function -->
+<div id="ShareScreenContainer" [ngStyle]="style" mwlResizable [validateResize]="validate" [enableGhostResize]="true"
+  [resizeSnapGrid]="{ left: 1, right: 1 }" (resizeEnd)="onResizeEnd($event)">
+
+  <!-- icon for minimise & maximise -->
+  <div class=" float-right">
+    <i style="margin-right: 0.5rem; font-size:17px; color:green" id="minimiseShare" (click)="minimiseShare()" 
+    class="fa fa-window-minimize "></i> <i class="fa fa-window-maximize mr-2" style="font-size: 16px; color:green" id="maximiseshare" (click)="maximiseshare()"  aria-hidden="true"></i>
+  </div>
+
+
+  <!-- top bottom right left side -->
+  <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"></div>
+  <div class="resize-handle-left" mwlResizeHandle [resizeEdges]="{ left: true }"></div>
+  <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"></div>
+  <div class="resize-handle-bottom" mwlResizeHandle [resizeEdges]="{ bottom: true }"></div>
+
+</div>
+
+<!-- Full screen video conference section -->
+<div class="fullscreen-close">
+  <img src="assets/img/fullscreen-close.svg" alt="" />
+</div>
+<div class="fullscreen-conference"></div>
+
+<!-- main-content -->
+<div class="main-content">
+  <div id="loader">
+    <div class="loader loader1"></div>
+    <div class="loader loader2"></div>
+    <div class="loader loader3"></div>
+    <div class="loader loader4"></div>
+    <div class="loader loader5"></div>
+  </div>
+  <div class="main-container" id="main-container">
+    <div class="gifLock">
+      <img src="assets/img/lock-icon.svg" />
+    </div>
+    <div class="drawing-left-iconpallete">
+      <img class="sozoLogo-Icon" src="assets/img/sozoSmallLogo.svg" alt="" (click)="testFunc()" />
+      <input type="text" name="documentTitle" id="documentTitle" [(ngModel)]="documentTitle" spellcheck="false"
+        style="border: none; font-weight: bold; width: 10rem; font-size: 1rem" autocomplete="off"
+        [disabled]="userAccess !== 'readonly' ? 'false' : 'true'" />
+      <img src="assets/img/SozoSaved.svg" alt="Search" class="saving-icon"
+        style="width: 1.62rem; height: 1.62rem; cursor: pointer" (click)="userAccess !== 'readonly' && saveMsg()" />
+      <div class="lds-dual-ring"></div>
+      <img type="button" id="dropdownMenuButton" [attr.data-toggle]="userAccess !== 'readonly' ? 'dropdown' : ''"
+        aria-haspopup="true" aria-expanded="false" src="assets/img/SozoActivity.svg" alt="Search"
+        style="width: 1.18rem; height: 1.1rem" (click)="closeDropdown()" />
+
+      <div class="dropdown-menu canvas_opt_list" aria-labelledby="dropdownMenuButton">
+        <a (click)="newCanvasHandler()" class="dropdown-item"> New Canvas </a>
+        <div class="dropdown-submenu">
+          <a class="dropdown-item" role="button" (click)="opneInsert()">
+            Insert
+            <img src="assets/img/canvas_option.svg" style="width: 0.56rem" />
+          </a>
+          <div class="dropdown-menu insert-option">
+            <label for="file" class="dropdown-item"> Images</label>
+            <input type="file" id="file" (change)="uploadImage($event)" multiple
+              accept="image/png,image/jpeg,image/jpg,image/svg+xml" />
+
+            <label class="dropdown-item" for="gifFile">Gif</label>
+            <input type="file" id="gifFile" (change)="uploadGif($event)" />
+            <span class="dropdown-item" (click)="boardTemplateModal()">Board</span>
+            <span class="dropdown-item" (click)="defaultTemplates()">Templates</span>
+          </div>
+        </div>
+        <div class="dropdown-submenu">
+          <a class="dropdown-item" role="button" (click)="opneExport()">
+            Export
+            <img src="assets/img/canvas_option.svg" style="width: 0.56rem" />
+          </a>
+          <div class="dropdown-menu p-0 export-option">
+            <div class="dropdown-item" (click)="exportAsPdf()">
+              <img src="assets/img/pdf-icon.svg" />
+              .PDF
+            </div>
+            <div class="dropdown-item" (click)="exportAsPpt()">
+              <img src="assets/img/ppt-icons.svg" />
+              .PPT
+            </div>
+          </div>
+        </div>
+        <a class="dropdown-item" (click)="duplicateCanvas()"> Duplicate </a>
+        <!-- <a class="dropdown-item"> Convert to Template </a> -->
+        <a class="dropdown-item" role="button" (click)="print()">
+          Print
+          <label class="text-black-50 mt-2">Ctrl P</label>
+        </a>
+        <a class="custom-control custom-checkbox d-flex">
+          <input name="includeProducts" class="custom-control-input" #showGrid id="showGrid" [checked]="checkCanvas"
+            (change)="checkboxUnchanges(showGrid.checked)" type="checkbox" />
+          <label class="custom-control-label d-flex align-items-center w-100" for="showGrid">Show Grid
+          </label>
+        </a>
+        <!-- <a class="dropdown-item">
+          Help
+        </a>
+        <a class="dropdown-item"> Account Settings </a> -->
+      </div>
+    </div>
+    <div class="saved-successfull-tab" *ngIf="showMessage">
+      <p>Succesfully Saved !</p>
+    </div>
+    <div class="drawing-right-iconpallete" [ngClass]="{ 'drawing-right-search': showSearchBox }">
+      <!-- <i class="fa drawing-right-searchicon"></i> -->
+      <a>
+        <div class="input-group search-box-group" *ngIf="showSearchBox">
+          <input type="text" cursorActiveIcon class="form-control search-input-box border-right-0"
+            placeholder="Search here..." id="searchText" (keyup)="objectSearch()" (focus)="focusIn()"
+            (focusout)="focusOut()" spellcheck="false" autocomplete="off" />
+          <div class="input-group-append cursur-pointer">
+            <button class="btn border-left-0 close-search-box" type="button" id="button-addon2" (click)="closeSearch()">
+              <img width="8" class="" src="assets/img/close_dropdown.svg" *ngIf="showSearchBox" />
+            </button>
+          </div>
+        </div>
+        <img class="search-section" src="assets/img/Group17239.svg" alt="Search" (click)="canvasSearch()" role="button"
+          style="width: 1.31rem; height: 1.31rem" />
+      </a>
+      <a class="whiteboard-shareButton" data-toggle="modal" data-target="#shareWhiteboardModal"
+        (click)="sendPermissionsId()">
+        <img src="assets/img/Group17237.svg" alt="Search" style="width: 1.31rem; height: 1.31rem" />
+      </a>
+      <a class="main-comment">
+        <img src="assets/img/Group17236.svg" alt="Search" (click)="commentState()"
+          style="width: 1.31rem; height: 1.31rem" />
+      </a>
+      <a class="whiteboard-addPeople d-none">
+        <img src="assets/img/Group17235.svg" alt="Search" (click)="addPeople()"
+          style="width: 1.31rem; height: 1.31rem" />
+      </a>
+      <a class="whiteboard-comment">
+        <img src="assets/img/Group17234.svg" alt="Search" (click)="noteState()"
+          style="width: 1.31rem; height: 1.31rem" />
+      </a>
+      <!-- <a class="addProfileIcon">
+        <img
+          src="assets/img/addProfileIcon.svg"
+          alt="profile"
+          style="width: 1.31rem; height: 1.31rem"
+        />
+      </a> -->
+      <div class="d-flex align-items-center text-white p-3 cursur-pointer live-conference" (click)="openLiveConf()"
+        data-toggle="collapse">
+        <img src="assets/img/live-conference-icon.svg" class="live-conference-icon mr-2" />
+        Live Conference
+      </div>
+    </div>
+    <div class="comment_drop">
+      <a class="header_comment">
+        <div class="row" style="margin: 5px">
+          <div class="col-md-8" style="padding: 0rem">
+            <h5 style="margin: 0.62rem">
+              <b>Comments</b>
+            </h5>
+          </div>
+          <div class="col-md-4 close_comment">
+            <img src="assets/img/close_dropdown.svg" (click)="closeComment()" role="button" />
+          </div>
+        </div>
+      </a>
+      <hr />
+      <a class="user_comment_list">
+        <ul class="list-group comment-body" style="margin: 0.62rem">
+          <div class="center h-100 w-100" *ngIf="noCommentShow">
+            <div class="no-comments">No Comments Found!</div>
+          </div>
+          <li *ngFor="let comment of commentsToBeShown" class="list-group-item comment_list"
+            (click)="findObjectByComment(comment.objectID)" role="button">
+            <div class="row comment_profile">
+              <div class="col-md-2" style="padding-right: 0rem">
+                <img src="assets/img/comment-profile.svg" style="width: 1.87rem" />
+              </div>
+              <div class="col-md-4 comment_user_profile">
+                <h6>
+                  <strong>{{ comment.userName }}</strong>
+                </h6>
+              </div>
+              <div class="col-md-6 comment_history">
+                <p>{{ comment.commentDate }} - {{ comment.commentTime }}</p>
+              </div>
+            </div>
+            <div class="user_comment">
+              <p>
+                {{ comment.userComment }}
+              </p>
+            </div>
+          </li>
+        </ul>
+      </a>
+      <a *ngIf="shouldAddComment" class="comment_section" style="padding: 0px">
+        <div class="add_comment">
+          <input type="text" placeholder="Add Comment Here..." class="comment-input" (focus)="focusIn()"
+            (focusout)="focusOut()" />
+          <button class="add-comment" (click)="addCommentHandlerBtn($event)"
+            [disabled]="shouldAddComment ? false : true" type="submit">
+            Add
+          </button>
+        </div>
+      </a>
+    </div>
+    <div *ngIf="showAddedPeople" class="team_drop">
+      <a class="header_team">
+        <div class="row" style="margin: 0.31rem">
+          <div class="col-md-8" style="padding: 0px">
+            <h5 style="margin: 0.62rem">
+              <b>Teams</b>
+            </h5>
+          </div>
+          <div class="col-md-4 close_team">
+            <img src="assets/img/close_dropdown.svg" (click)="closeAddPeople()" />
+          </div>
+        </div>
+      </a>
+      <hr />
+      <a class="team_view">
+        <img src="../../assets/img/team_user.svg" class="team_user_icon" />
+        <label>No Added Yet!</label>
+        <button class="btn_add_people" data-toggle="modal" data-target="#addPeopleModal">
+          <img src="../../assets/img/add_user_icon.svg" />
+          Add People
+        </button>
+      </a>
+    </div>
+    <div class="notes_drop">
+      <a class="notes_header">
+        <div class="row" style="margin: 0.31rem">
+          <div class="col-md-8">
+            <h5 style="margin: 0.62rem">
+              <b>Notes</b>
+            </h5>
+          </div>
+          <div class="col-md-4 close_team">
+            <img src="assets/img/close_dropdown.svg" (click)="closeNotes()" role="button" />
+          </div>
+        </div>
+      </a>
+      <a class="notes_list_opt" style="padding: 0rem">
+        <div class="form-group">
+          <textarea id="summernote" class="form-control"></textarea>
+        </div>
+      </a>
+    </div>
+    <div class="modal fade" id="shareWhiteboardModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              <strong>Share with others</strong>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>
+              Link share is on
+              <span style="float: right; color: #b8b8b8">
+                Shareable link
+                <img src="assets/img/dashboardSharableLink.svg"
+                  style="width: 1.25rem; margin: 0rem 0rem 0.12rem 0.31rem" alt="Shareable link" />
+              </span>
+            </h6>
+            <div class="input-group mb-3 cursor-pointer">
+              <input type="text" class="form-control input_copy_button border-right-0" disabled />
+              <div class="input-group-append mr-2">
+                <span class="input-group-text copy_input_button" id="basic-addon2">
+                  <img src="assets/img/copy-link-sharewhiteboard.svg" />
+                  Copy</span>
+              </div>
+              <div class="btn permission-list align-items-center bg-white border" type="button" id="dropdownMenu2"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- <img src="assets/img/dashboradShareEditActive.svg" class="mb-1" /> -->
+
+                <span class="">Edit and share</span>
+                <img src="assets/img/dashboardShareWithOthersCaret.svg" class="ml-2" width="10" />
+              </div>
+              <div class="dropdown-menu permission-Opt">
+                <a class="dropdown-item d-flex align-items-center share-icon-block" type="button"
+                  (click)="editShareLinkGen()">
+                  <div class="share-icon">
+                    <!-- <img src="assets/img/share_profile_img.svg" />
+                    <img src="assets/img/dashboradShareEditActive.svg" /> -->
+                  </div>
+                  <span class="mx-2">Edit and Share</span>
+                </a>
+                <a class="dropdown-item d-flex align-items-center share-icon-block" type="button"
+                  (click)="editLinkGen()">
+                  <div class="share-icon">
+                    <!-- <img src="assets/img/dashboardEditIcon.svg" />
+                    <img src="assets/img/dashboardEditIconActive.svg" /> -->
+                  </div>
+
+                  <span class="mx-2">Edit</span>
+                </a>
+                <a class="dropdown-item d-flex align-items-center share-icon-block" type="button"
+                  (click)="viewLinkGen()">
+                  <div class="share-icon">
+                    <!-- <img src="assets/img/dashboardShareWithView.svg" />
+                    <img src="assets/img/dashboardShareWithViewActive.svg" /> -->
+                  </div>
+                  <span class="mx-2">View</span>
+                </a>
+              </div>
+            </div>
+            <h5 class="lbl-people">People</h5>
+            <div class="form-group d-flex align-items-center justify-content-between">
+              <!-- <div class="form-control"> -->
+              <input type="text" id="userInput" placeholder="Add more people here...." data-role="tagsinput" name="tags"
+                class="form-control" />
+              <!-- </div> -->
+              <!-- <div class="col-3"> -->
+              <div class="dropdown">
+                <button class="btn people_drop_button" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                  <img src="assets/img/dashboradShareEditActive.svg" style="width: 1rem" />
+                  <img src="assets/img/dashboardShareWithDropdown.svg" class="float-right mt-2 ml-2" width="10" />
+                </button>
+                <div class="dropdown">
+                  <div class="dropdown-menu add_more_user_btn" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item d-flex align-items-center share-icon-block"
+                      (click)="addPeopleEditShareLinkGen()">
+                      <div class="share-icon">
+                        <img src="assets/img/share_profile_img.svg" />
+                        <img src="assets/img/dashboradShareEditActive.svg" />
+                      </div>
+                      <span class="ml-2">Edit and Share</span>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center share-icon-block"
+                      (click)="addPeopleEditLinkGen()">
+                      <div class="share-icon">
+                        <img src="assets/img/dashboardEditIcon.svg" />
+                        <img src="assets/img/dashboardEditIconActive.svg" />
+                      </div>
+                      <span class="ml-2">Edit</span>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center share-icon-block"
+                      (click)="addPeopleViewLinkGen()">
+                      <div class="share-icon">
+                        <img src="assets/img/dashboardShareWithView.svg" />
+                        <img src="assets/img/dashboardShareWithViewActive.svg" />
+                      </div>
+                      <span class="ml-2">View</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+            </div>
+
+            <h5 class="lbl-people">Shared</h5>
+            <!-- <label *ngIf="!userList">Shared with none!</label> -->
+            <!-- shared user list -->
+            <div *ngIf="userList">
+              <ul class="list-group shared-user-list">
+                <li class="list-group-item pb-0 d-flex align-items-center" *ngFor="let x of sharedUserDetails">
+                  <div
+                    class="rounded-circle text-white border-dark bg-success d-flex justify-content-center align-items-center share-name-initial font-weight-bold">
+                    {{ x.nameInitial | uppercase }}
+                  </div>
+                  <label class="mb-0 ml-2 font-weight-bold">{{
+                    x.name | uppercase
+                    }}</label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="form-group">
+              <textarea id="comments" rows="6" class="share_comment mt-4 mr-2 px-3 form-control"
+                placeholder="Comments"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer border-top-0">
+            <button type="button" class="btn cancel-share-btn" data-dismiss="modal">
+              Cancel
+            </button>
+            <button data-dismiss="modal" type="button" class="btn send-btn" (click)="shareWhiteboardEmail()">
+              Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters px-2 canvas-tool">
+      <div class="col-md-1 d-flex align-items-center flex-column w-100 mw-100">
+        <div class="sidebar">
+          <!-- side bar menu -->
+          <ul class="list-group draw_icon" id="sidebar-container">
+            <li class="side-active active" (click)="
+                canvas.isDrawingMode = false;
+                deletingFreeDrawingObj = false;
+                canvas.set({ hoverCursor: 'all-scroll' });
+                userAccess !== 'readonly' && selectAllObjs()
+              ">
+              <img class="cursor-Active-icon active-sidebar-icon" src="assets/img/cursorActiveIcon.svg"
+                style="padding: 0.37rem 0rem; width: 1.87rem" />
+              <img class="cursor-icon sidebar-inactive-icon" src="assets/img/cursor_icon.svg"
+                style="padding: 0.37rem 0rem; width: 1.87rem" />
+            </li>
+            <li class="side-active" (click)="
+                isGrabbing = false;
+                canvas.isDrawingMode = false;
+                deletingFreeDrawingObj = false;
+                canvas.set({ hoverCursor: 'all-scroll' });
+                userAccess !== 'readonly' && shapeObjectHoldHandler('textarea')
+              ">
+              <a>
+                <img src="assets/img/textActiveIcon.svg" class="active-sidebar-icon"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+                <img class="sidebar-inactive-icon" src="assets/img/text_icon.svg"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+              </a>
+            </li>
+            <li class="nav-item dropdown side-active" [attr.data-toggle]="userAccess !== 'readonly' ? 'dropdown' : ''">
+              <a id="navbarDropdown" role="button" (click)="
+                  isGrabbing = false;
+                  canvas.isDrawingMode = false;
+                  deletingFreeDrawingObj = false;
+                  canvas.set({ hoverCursor: 'all-scroll' });
+                  userAccess !== 'readonly' &&
+                    shapeObjectHoldHandler('sticky-group', '#EAE15F')
+                ">
+                <img src="assets/img/stickyNotesActiveIcon.svg" class="active-sidebar-icon" style="
+                    padding: 0.37rem 0rem;
+                    width: 1.87rem;
+                    transform: rotate(90deg);
+                  " />
+                <img class="sidebar-inactive-icon" src="assets/img/color_palette_icon.svg" style="
+                    padding: 0.37rem 0rem;
+                    width: 1.87rem;
+                    transform: rotate(90deg);
+                  " />
+              </a>
+              <div class="dropdown-menu dropdown-menu-right color_drop" aria-labelledby="navbarDropdown">
+                <div class="add_color_pick">
+                  <div (click)="
+                      userAccess !== 'readonly' &&
+                        shapeObjectHoldHandler('sticky-group', item)
+                    " role="button" class="color-pick" [ngStyle]="{ 'background-color': item }"
+                    *ngFor="let item of drawingColorList"></div>
+                  <div class="new-color" (click)="shapeObjectHoldHandler('sticky-group', newColor)"></div>
+                  <input type="text" name="color" id="color" />
+                  <!-- <label class="add_new_color">
+                    <u>Add New</u>
+                  </label> -->
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown side-active" (click)="
+                isGrabbing = false;
+                canvas.isDrawingMode = false;
+                deletingFreeDrawingObj = false;
+                canvas.set({ hoverCursor: 'all-scroll' })
+              ">
+              <a id="navbarDropdown" role="button" [attr.data-toggle]="userAccess !== 'readonly' ? 'dropdown' : ''"
+                aria-haspopup="true" aria-expanded="false" (click)="
+                  deletingFreeDrawingObj = false;
+                  canvas.set({ hoverCursor: 'all-scroll' })
+                ">
+                <img class="active-sidebar-icon" src="assets/img/shapesActiveIcon.svg" style="
+                    padding: 0.37rem 0rem;
+                    width: 1.87rem;
+                    margin-left: 0.15rem;
+                  " />
+                <img class="sidebar-inactive-icon" src="assets/img/shapes_icon.svg" style="
+                    padding: 0.37rem 0rem;
+                    width: 1.87rem;
+                    margin-left: 0.15rem;
+                  " />
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shapes" style="padding: 0.62rem"
+                aria-labelledby="navbarDropdown">
+                <div style="
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                  ">
+                  <a class="" role="button">
+                    <img src="assets/img/rect_shape.svg" (click)="
+                        userAccess !== 'readonly' &&
+                          shapeObjectHoldHandler('rect-group')
+                      " style="width: 2.31rem" />
+                  </a>
+                  <a class="" role="button">
+                    <img src="assets/img/circle_shape.svg" (click)="
+                        userAccess !== 'readonly' &&
+                          shapeObjectHoldHandler('circle-group')
+                      " style="width: 2.31rem" />
+                  </a>
+                  <a class="" role="button">
+                    <img src="assets/img/diamond_shape.svg" (click)="
+                        userAccess !== 'readonly' &&
+                          shapeObjectHoldHandler('diamond-group')
+                      " style="width: 2.31rem" />
+                  </a>
+
+                  <a class="" role="button">
+                    <img src="assets/img/triangle_shape.svg" (click)="
+                        userAccess !== 'readonly' &&
+                          shapeObjectHoldHandler('triangle-group')
+                      " style="width: 2.31rem" />
+                  </a>
+                </div>
+                <div class="row" style="margin-top: 0.62rem">
+                  <div class="col-md-9">
+                    <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                      ">
+                      <a class="" role="button">
+                        <img src="assets/img/star_shape.svg" (click)="
+                            userAccess !== 'readonly' &&
+                              shapeObjectHoldHandler('star-group')
+                          " style="width: 2.31rem" />
+                      </a>
+                      <a class="" role="button" style="padding: 0rem 0.62rem">
+                        <img src="assets/img/square_shape.svg" (click)="
+                            userAccess !== 'readonly' &&
+                              shapeObjectHoldHandler('square-group')
+                          " style="width: 2.2rem" />
+                      </a>
+                      <a class="" role="button">
+                        <img src="assets/img/polygon_shape.svg" (click)="
+                            userAccess !== 'readonly' &&
+                              shapeObjectHoldHandler('hexagon-group')
+                          " style="width: 2.31rem" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="side-active dropdown" (click)="
+                objectDataToBeFormedSingle = '';
+                canvas.isDrawingMode = false;
+                deletingFreeDrawingObj = false;
+                userAccess !== 'readonly' && startArrowToDraw();
+                canvas.set({ hoverCursor: 'all-scroll' })
+              " style="position: relative">
+              <a class="" [attr.data-toggle]="userAccess !== 'readonly' ? 'dropdown' : ''">
+                <img class="active-sidebar-icon" src="assets/img/arrowActiveIcon.svg"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+                <img class="sidebar-inactive-icon" src="assets/img/arrow_icon.svg"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right arrow-section" aria-labelledby="navbarDropdown">
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 3rem;
+                  ">
+                  <a class="" role="button">
+                    <img src="assets/img/BendArrowStraightShape.svg" (click)="
+                        userAccess !== 'readonly' &&
+                          arrowHoldHandler('straight')
+                      " style="width: 1.5rem; margin-right: 0.5rem" />
+                  </a>
+
+                  <a class="" role="button">
+                    <img src="assets/img/BendArrowZShape.svg" (click)="
+                        userAccess !== 'readonly' && arrowHoldHandler('perpend')
+                      " style="width: 1.5rem" />
+                  </a>
+                </div>
+              </div>
+            </li>
+            <div class="dropdown">
+              <li class="nav-item dropdown side-active"
+                [attr.data-toggle]="userAccess !== 'readonly' ? 'dropdown' : ''">
+                <a id="navbarDropdown" role="button" (click)="
+                    objectDataToBeFormedSingle = '';
+                    isGrabbing = false;
+                    canvas.set({ hoverCursor: 'all-scroll' });
+                    userAccess !== 'readonly' ? initialFreeDrawing() : ''
+                  ">
+                  <img class="active-sidebar-icon" src="assets/img/freeDrawingActiveIcon.svg"
+                    style="padding: 0.37rem 0rem; width: 1.87rem" />
+                  <img class="sidebar-inactive-icon" src="assets/img/free_drawing_icon.svg"
+                    style="padding: 0.37rem 0rem; width: 1.87rem" />
+                </a>
+                <div class="dropdown-menu dropdown-menu-right freedrawing" aria-labelledby="navbarDropdown"
+                  style="padding: 0rem">
+                  <div class="drawing_brush">
+                    <div class="row no-gutters drawing-width mt-4 mb-2">
+                      <div class="col-3 common brush-active center justify-content-between"
+                        (click)="userAccess !== 'readonly' && brush1()">
+                        <div class="brush-width-1" role="button"></div>
+                      </div>
+                      <div class="col-3 common center justify-content-between"
+                        (click)="userAccess !== 'readonly' && brush2()">
+                        <div class="brush-width-2" role="button"></div>
+                      </div>
+                      <div class="col-3 common center justify-content-between"
+                        (click)="userAccess !== 'readonly' && brush3()">
+                        <div class="brush-width-3" role="button"></div>
+                      </div>
+                      <div class="col-3 common center justify-content-between"
+                        (click)="userAccess !== 'readonly' && brush4()">
+                        <div class="brush-width-4" role="button"></div>
+                      </div>
+                    </div>
+                    <span style="
+                        border-bottom: 1px solid #e9eeef;
+                        display: block;
+                        margin-bottom: 0.62rem;
+                      "></span>
+                  </div>
+                  <div role="button" class="freedrawing-color" [ngStyle]="{ 'background-color': item }"
+                    *ngFor="let item of drawingColorList" (click)="userAccess !== 'readonly' && setColor(item)"></div>
+                  <div class="row erase-drawing" style="padding: 0.75rem">
+                    <div class="col-md-5 erase-common">
+                      <div class="">
+                        <img class="" role="button" src="assets/img/eraser.svg"
+                          (click)="userAccess !== 'readonly' && erase()" style="width: 1.87rem; margin: 0.5rem" />
+                      </div>
+                    </div>
+                    <div class="col-md-7" style="border-left: 1px solid #e9eeef; margin-top: 0.6rem">
+                      <a role="button" style="color: #62af49; padding: 0.6rem"
+                        (click)="userAccess !== 'readonly' && deleteDrawing()">All Erase</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </div>
+
+            <!-- tranprent button  start-->
+            <li class="side-active" (click)="backgroundTransprent()">
+              <a title="Transparent Object">
+                <img src="assets/img/circle_shape.svg" class="active-sidebar-icon"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+                <img class="sidebar-inactive-icon" src="assets/img/circle_shape.svg"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+              </a>
+            </li>
+            <!-- tranprent button end -->
+          </ul>
+        </div>
+        <div class="sidebar_sub_menu">
+          <ul class="list-group draw_icon">
+            <li class="nav-item dropdown side-active" [attr.data-toggle]="userAccess !== 'readonly' ? 'dropdown' : ''"
+              (click)="
+                isGrabbing = false;
+                deletingFreeDrawingObj = false;
+                deletingFreeDrawingObj = false;
+                canvas.set({ hoverCursor: 'all-scroll' })
+              ">
+              <a id="navbarDropdown" role="button">
+                <img class="active-sidebar-icon" src="assets/img/containerActiveIcon.svg"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+                <img class="sidebar-inactive-icon" src="assets/img/container_icon.svg"
+                  style="padding: 0.37rem 0rem; width: 1.87rem" />
+              </a>
+              <div class="dropdown-menu dropdown-menu-right screen_container" aria-labelledby="navbarDropdown">
+                <h5 class="ml-3">
+                  <b>Tables</b>
+                </h5>
+                <hr style="width: 16.25rem" />
+                <img src="assets/img/screen1.svg" style="width: 6rem; height: 5.37rem" (click)="
+                    userAccess !== 'readonly' &&
+                      shapeObjectHoldHandler('container-rect')
+                  " />
+                <img src="assets/img/screen2.svg" style="width: 6rem; height: 5.37rem" (click)="
+                    userAccess !== 'readonly' &&
+                      shapeObjectHoldHandler('container-onebytwo')
+                  " />
+                <img src="assets/img/screen3.svg" style="width: 6rem; height: 5.37rem" (click)="
+                    userAccess !== 'readonly' &&
+                      shapeObjectHoldHandler('container-twobytwo')
+                  " />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-11">
+        <div class="drawing" id="drawing" style="position: relative">
+          <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; bottom: 0">
+            <div id="linkCopyToast" class="toast hide bg-dark" role="alert" aria-live="assertive" aria-atomic="true"
+              data-delay="2000">
+              <div class="toast-header p-2">
+                <img src="assets/img/check_icon.svg" style="width: 1.25rem; margin-right: 0.5rem"
+                  alt="Shareable link" />
+                <strong class="mr-auto">Link Copied</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="invite-friend d-none" data-toggle="modal" data-target="#addPeopleModal">
+          <img src="assets/img/invite-friend-icon.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="main-footer">
+      <div class="footer">
+        <img src="assets/img/undo-icon.svg" style="width: 1.56rem" (click)="userAccess !== 'readonly' && undo()" />
+        <img src="assets/img/redo-icon.svg" style="width: 1.56rem" (click)="userAccess !== 'readonly' && redo()" />
+        <img src="assets/img/location_icon.svg" style="width: 1.56rem" (click)="miniMap()" />
+
+        <img *ngIf="showFullScreen" src="assets/img/capture_icon.svg" style="width: 1.56rem"
+          (click)="userAccess !== 'readonly' && fullScreen()" />
+        <img *ngIf="showCloseScreen" src="assets/img/minimiz.svg" style="width: 1.4rem"
+          (click)="userAccess !== 'readonly' && closeFullScreen()" />
+        <div id="canvasMap">
+          <canvas id="minimap" width="260" class="h-100" style="border: 1px solid black"></canvas>
+        </div>
+      </div>
+      <div class="min-max-canvas">
+        <img role="button" src="assets/img/zoom_out.svg" style="width: 1.56rem"
+          (click)="userAccess !== 'readonly' && zoomOut()" />
+        <div class="zoom-input">
+          <input type="number" [value]="zoomPercentage" [disabled]="userAccess !== 'readonly' ? false : true"
+            class="zoom-input-handler" (change)="zoomInputHandler()" />
+          <span>%</span>
+        </div>
+        <img role="button" src="assets/img/zoom_in.svg" style="width: 1.56rem"
+          (click)="userAccess !== 'readonly' && zoomIn()" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div
+  class="modal fade"
+  data-backdrop="static"
+  [attr.id]="modalId"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered" [ngClass]="modalSizeConfig">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <ng-content select="[header]"></ng-content>
+      </div>
+      <div class="modal-body">
+        <ng-content select="[body]"></ng-content>
+      </div>
+      <div class="modal-footer border-0">
+        <ng-content select="[footer]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

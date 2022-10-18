@@ -1,0 +1,777 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  /* overflow: hidden */
+
+  /* max-width: 100%; */
+
+  /* overflow-x: hidden; */
+
+  user-select: none;
+
+  font-size: 87.5%;
+
+  /* overflow: hidden; */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.shared-user-list li {
+  border: 0rem;
+}
+.shared-user-list2 li {
+  border: 0rem;
+}
+
+.share-name-initial {
+  width: 2rem;
+  height: 2rem;
+}
+
+#dashboard-main::-webkit-scrollbar {
+  display: flex;
+}
+
+.bootstrap-tagsinput {
+  max-width: 80% !important;
+}
+
+.bootstrap-tagsinput .tag {
+  padding: 0.5rem !important;
+
+  background-color: #62af49 !important;
+}
+
+.bootstrap-tagsinput .tag span {
+  font-size: 1rem !important;
+}
+
+.bootstrap-tagsinput input {
+  width: 29rem !important;
+
+  padding: 0.2rem !important;
+}
+
+.arrow-active {
+  border-top: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Modal Css*/
+
+.modal-content {
+  border-radius: 0.6rem;
+
+  width: 40rem;
+}
+.modal-dialog-centered{
+  justify-content: center;
+}
+
+
+.form-control {
+  border-radius: 0.4rem;
+
+  border: 1px solid #ededed;
+
+  font-size: 0.95rem;
+
+  font-weight: 300;
+
+  min-height: 3rem;
+}
+
+.form-control:focus {
+  border-color: #47ac28;
+
+  box-shadow: 0rem 0.4rem 0.8rem rgba(63, 235, 63, 0.5);
+}
+
+.input-icon-right {
+  width: 1.8rem;
+
+  margin: 0.5rem;
+
+  right: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 0;
+
+  box-shadow: 0 0 0 0.2rem rgb(184 255 186);
+}
+
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+
+.custom-scroll-bar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+
+.custom-scroll-bar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.input-icon-right + .form-control {
+  padding-right: 2.2rem;
+
+  width: 20rem;
+}
+
+/* @media(min-width:1920px) {
+
+    html {
+
+        font-size: 25px;
+
+    }
+
+} */
+
+.align-text {
+  transform: translate3d(245px, 30px, 0px) !important;
+}
+
+/* .canvas-container {
+
+   width: 100vw !important;
+
+  height: 100vh !important;
+
+  overflow: hidden;
+
+} */
+
+/* .container-toolbar {
+
+  padding: 0 0.62rem;
+
+  background-color: white;
+
+  height: 2.5rem;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  position: absolute;
+
+  box-shadow: 0.18rem 0.18rem 0.18rem rgb(144, 144, 144, 0.5);
+
+  border-radius: 0.31rem;
+
+}
+
+ 
+
+.container-toolbar select {
+
+  border: none;
+
+}
+
+ 
+
+.container-toolbar select:focus {
+
+  outline: none;
+
+} */
+
+/* Loader Animation Starts */
+
+.freedrawing-toolbar {
+  display: none;
+
+  position: absolute;
+
+  background-color: white;
+
+  z-index: 1;
+
+  border-radius: 0.2rem;
+
+  box-shadow: 0.18rem 0.18rem 0.18rem rgb(144, 144, 144, 0.5);
+
+  width: 18rem;
+
+  height: 2.8rem;
+
+  cursor: pointer;
+}
+
+.freedrawing-toolbar-colorpicker .freeDrawing-colorPallete {
+  border-radius: 50%;
+
+  background-color: black;
+
+  width: 1.6rem;
+
+  height: 1.6rem;
+}
+
+.free-drawing-color {
+  position: absolute !important;
+
+  top: 0.9rem !important;
+
+  left: -0.5rem !important;
+
+  width: 0.5rem;
+}
+
+#loader {
+  display: none;
+
+  height: 100%;
+
+  width: 100%;
+
+  position: fixed;
+
+  top: 0px;
+
+  left: 0px;
+
+  z-index: 100000;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.loader {
+  border: 0.7vw solid transparent;
+
+  border-radius: 50%;
+
+  border-top-color: #62af49;
+
+  position: fixed;
+
+  top: 50%;
+
+  left: 50%;
+}
+
+.loader1 {
+  width: 2.5vw;
+
+  height: 2.5vw;
+
+  animation: spin 0.4s linear infinite;
+}
+
+.loader2 {
+  width: 5vw;
+
+  height: 5vw;
+
+  animation: spin 0.8s linear infinite;
+}
+
+.loader3 {
+  width: 7.5vw;
+
+  height: 7.5vw;
+
+  animation: spin 1.2s linear infinite;
+}
+
+.loader4 {
+  width: 10vw;
+
+  height: 10vw;
+
+  animation: spin 1.6s linear infinite;
+}
+
+.loader5 {
+  width: 12.5vw;
+
+  height: 12.5vw;
+
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Loader Animation Ends */
+
+/* Arrow Toolbar Starts here*/
+
+.arrow-toolbar {
+  position: absolute;
+
+  width: 35rem;
+
+  height: 2.9rem;
+
+  background-color: white;
+
+  z-index: 1;
+
+  border-radius: 0.2rem;
+
+  box-shadow: 0.18rem 0.18rem 0.18rem rgba(144, 144, 144, 0.5);
+
+  display: none;
+
+  /* top:10rem;
+
+  left: 10rem; */
+}
+
+.arrow-toolbar .colorchanger-dropdown-menu,
+.arrow-toolbar .bordercolorchanger-dropdown-menu {
+  width: 11rem !important;
+
+  min-height: 6rem !important;
+
+  top: 1rem !important;
+}
+
+.arrow-toolbar .color-list:hover,
+.arrow-toolbar .border-color-list:hover {
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Straight Arrow */
+
+.straightarrow-dropdown-menu {
+  top: 0.5rem !important;
+
+  min-width: 6rem !important;
+}
+
+.straightarrow-menulist > div:hover {
+  border-left: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #ecf5ff 0% 0% no-repeat padding-box;
+}
+
+/* Arrow Width Changer */
+
+.arrowwidth-changer-dropdown-menu {
+  min-width: 5rem !important;
+
+  top: 0.5rem !important;
+}
+
+/* .arrowwidth-changer-dropdown-menulist{
+
+  min-height:14rem !important;
+
+} */
+
+.arrowwidth-changer-diffwidth:hover {
+  border-left: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Bend Arrow */
+
+.bendarrow-dropdown-menu {
+  top: 0.5rem !important;
+
+  min-width: 4rem !important;
+}
+
+.bendarrow-menulist > div:hover {
+  border-top: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Left Pointed Arrow */
+
+.leftpointedarrow-dropdown-menu {
+  top: 0.5rem !important;
+
+  min-width: 6rem !important;
+}
+
+.leftpointedarrow-menulist > div:hover {
+  border-left: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Right Pointed Arrow */
+
+.rightpointedarrow-dropdown-menu {
+  top: 0.5rem !important;
+
+  min-width: 6rem !important;
+}
+
+.rightpointedarrow-menulist > div:hover {
+  border-left: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Arrow Toolbar End Here*/
+
+.image-main-toolbar {
+  position: absolute;
+
+  height: 2.9rem;
+
+  background-color: white;
+
+  z-index: 1;
+
+  border-radius: 0.2rem;
+
+  box-shadow: 0.18rem 0.18rem 0.18rem rgba(144, 144, 144, 0.5);
+
+  display: none;
+}
+
+.image-toolbar {
+  display: flex !important;
+
+  height: 2.9rem;
+
+  position: absolute;
+}
+
+.objects-toolbar {
+  position: absolute;
+
+  height: 2.9rem;
+
+  background-color: white;
+
+  z-index: 1;
+
+  border-radius: 0.2rem;
+
+  box-shadow: 0.18rem 0.18rem 0.18rem rgba(144, 144, 144, 0.5);
+
+  display: none;
+}
+
+/* Shape Toolbar Starts Here */
+
+.main-toolbar {
+  position: absolute;
+
+  /* width: 45rem; */
+
+  height: 2.9rem;
+
+  background-color: white;
+
+  z-index: 1;
+
+  border-radius: 0.2rem;
+
+  box-shadow: 0.18rem 0.18rem 0.18rem rgba(144, 144, 144, 0.5);
+
+  display: none;
+
+  /* align-items: center; */
+}
+
+.shape-toolbar {
+  display: flex !important;
+
+  height: 2.9rem;
+
+  position: absolute;
+}
+
+.shape-toolbar .shapetoolbarlogo-dropdown-menu {
+  width: 12rem !important;
+
+  height: 6rem !important;
+
+  top: 0.5rem !important;
+}
+
+/* .shape-toolbar .shapetoolbar-menulist .logo{
+
+  background:#ccc
+
+} */
+
+.shape-toolbar .colorchanger-dropdown-menu,
+.shape-toolbar .bordercolorchanger-dropdown-menu {
+  width: 11rem !important;
+
+  min-height: 6rem !important;
+
+  top: 1rem !important;
+}
+
+.shape-toolbar .color-list:hover,
+.shape-toolbar .border-color-list:hover {
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+.shape-toolbar .fontfamily-dropdown-menu {
+  width: 10rem !important;
+
+  min-height: 6rem !important;
+
+  top: 0.5rem !important;
+}
+
+.shape-toolbar .fontfamily-item:hover,
+.shape-toolbar .fontsize-item:hover {
+  display: flex;
+
+  align-items: center;
+
+  border-left: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+.container-dropdown-menu{
+  min-width: 6rem;
+  min-height: 3rem;
+  top: 1rem !important;
+  left: -1rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.container-menu-list {
+  height: 3rem;
+}
+
+.shape-toolbar .container-lock-icon:hover,
+.shape-toolbar .container-lock-icon-allobjects:hover {
+  border-bottom: 0.25rem solid #a01c0e;
+}
+
+
+.shape-toolbar .fontsize-dropdown-menu {
+  min-width: 6rem !important;
+
+  height: 20rem !important;
+
+  top: 0.5rem !important;
+
+  overflow: auto !important;
+
+  left: -1rem !important;
+}
+
+.shape-toolbar .fontsize-dropdown-menu::-webkit-scrollbar {
+  display: none !important;
+}
+
+.border-colorchanger .active {
+  border-bottom: 0.25rem solid #62af49;
+}
+
+.shape-toolbar .movementtext-dropdown-menu {
+  width: 8rem !important;
+
+  height: 2.8rem !important;
+
+  top: 0.5rem !important;
+}
+
+.shape-toolbar .text-alignment:hover {
+  border-bottom: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+.text-alignment-division .active {
+  border-bottom: 0.25rem solid #62af49;
+
+  color: #62af49;
+
+  background: #e3ffdb 0% 0% no-repeat padding-box;
+}
+
+/* Shape Toolbar End Here */
+
+/* Global  */
+
+.center {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #eaffe4;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #eaffe4;
+}
+
+/* .dropdown-toogleicon{
+
+  width: 0.2rem;
+
+} */
+
+.form-check.sn-checkbox-open-in-new-window {
+  display: none !important;
+}
+
+.form-check.sn-checkbox-use-protocol {
+  display: none !important;
+}
+
+/* media queries */
+
+@media (min-width: 800px) {
+  html {
+    font-size: 8.204px;
+  }
+
+  .dashboard-sidebar {
+    padding-top: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 10.5px;
+  }
+
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 13.118px;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+}
+
+@media (min-width: 1366px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 14.35px;
+  }
+
+  .container {
+    max-width: 1230px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 15.736px;
+  }
+
+  .container {
+    max-width: 1348.8px;
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 16.394px;
+  }
+
+  .container {
+    max-width: 1405.2px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 19.67px;
+  }
+
+  .container {
+    max-width: 1686px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 26.24px;
+  }
+
+  .container {
+    max-width: 2249px;
+  }
+}
+
+@media (min-width: 3840px) {
+  html {
+    font-size: 39.35px;
+  }
+
+  .container {
+    max-width: 3373px;
+  }
+}
